@@ -107,6 +107,8 @@
     <Compile Include="TemplateGenerator\TemplateCompiler.cs" />
     <Compile Include="TemplateGenerator\TemplateParser.cs" />
     <Compile Include="ExtractHTML.cs" />
+    <Compile Include="Toolbox\StringExtensions.cs" />
+    <Compile Include="Toolbox\Two.cs" />
     <Compile Include="XHTMLWriter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,12 +229,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\toolbox\Toolbox.Portable.csproj">
-      <Project>{dab7909c-089b-42b1-ac92-093671a65e59}</Project>
-      <Name>Toolbox.Portable</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,15 +12,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B7D5CC
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug MonoMac|Any CPU = Debug MonoMac|Any CPU
+		Debug MonoMac|Mixed Platforms = Debug MonoMac|Mixed Platforms
 		Debug MonoMac|x86 = Debug MonoMac|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|Any CPU.ActiveCfg = Debug MonoMac|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|Mixed Platforms.ActiveCfg = Debug MonoMac|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|Mixed Platforms.Build.0 = Debug MonoMac|x86
 		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|x86.ActiveCfg = Debug MonoMac|x86
 		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|x86.Build.0 = Debug MonoMac|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|x86.ActiveCfg = Debug|x86
 		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|x86.Build.0 = Debug|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|Any CPU.ActiveCfg = Release|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|Mixed Platforms.Build.0 = Release|x86
 		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|x86.ActiveCfg = Release|x86
 		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

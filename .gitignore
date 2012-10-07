@@ -1,1 +1,4 @@
 *.suo
+/packages/
+/SiteSharper/bin/
+/SiteSharper/obj/
