@@ -3,7 +3,7 @@ using System.IO;
 using System.Web.Razor;
 using System.Web.Razor.Parser;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	static class TemplateParser
 	{

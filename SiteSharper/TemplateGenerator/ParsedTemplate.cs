@@ -1,6 +1,6 @@
 ﻿using System.CodeDom;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	sealed class ParsedTemplate
 	{

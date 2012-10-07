@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml;
 using Toolbox;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	static class ExtractHTML
 	{

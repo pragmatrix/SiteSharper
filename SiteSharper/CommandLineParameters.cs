@@ -4,7 +4,7 @@ using System.Linq;
 using Toolbox;
 
 
-namespace ProductSite
+namespace SiteSharper
 {
 	public sealed class CommandLineParameters : DynamicObject
 	{

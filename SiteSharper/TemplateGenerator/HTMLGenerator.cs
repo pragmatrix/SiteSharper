@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	static class HTMLGenerator
 	{

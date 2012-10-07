@@ -1,6 +1,6 @@
-﻿using ProductSite.Model;
+﻿using SiteSharper.Model;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	public sealed class ModuleContext
 	{

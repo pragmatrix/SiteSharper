@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ProductSite.Model
+namespace SiteSharper.Model
 {
 	sealed class Module
 	{

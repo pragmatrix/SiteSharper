@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductSite.Properties {
+namespace SiteSharper.Properties {
     using System;
     
     

@@ -1,4 +1,4 @@
-﻿namespace ProductSite.Model
+﻿namespace SiteSharper.Model
 {
 	public sealed class ForumPage : Page
 	{

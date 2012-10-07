@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	sealed class CompiledTemplate
 	{

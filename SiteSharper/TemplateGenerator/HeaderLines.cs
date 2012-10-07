@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	static class HeaderLines
 	{

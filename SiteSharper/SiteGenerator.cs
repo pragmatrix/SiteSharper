@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using ProductSite.Model;
-using ProductSite.TemplateGenerator;
+using SiteSharper.Model;
+using SiteSharper.TemplateGenerator;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	public sealed class SiteGenerator
 	{

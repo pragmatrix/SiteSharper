@@ -1,6 +1,6 @@
-﻿using ProductSite.Model;
+﻿using SiteSharper.Model;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	// must be public to be accessible from a compiled page template.
 	public sealed class PageContext

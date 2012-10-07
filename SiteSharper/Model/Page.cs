@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using MarkdownSharp;
 
-namespace ProductSite.Model
+namespace SiteSharper.Model
 {
 	public class Page
 	{

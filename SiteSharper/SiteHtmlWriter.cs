@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using ProductSite.Model;
+using SiteSharper.Model;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	static class SiteHtmlWriter
 	{

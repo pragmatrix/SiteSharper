@@ -6,7 +6,7 @@ using System.Reflection;
 using Microsoft.CSharp;
 using Toolbox;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	static class TemplateCompiler
 	{

@@ -2,7 +2,7 @@
 using System.Dynamic;
 using System.Linq;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	sealed class ModuleContextParameters : DynamicObject
 	{

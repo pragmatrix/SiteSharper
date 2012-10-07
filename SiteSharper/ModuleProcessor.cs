@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
-using ProductSite.Model;
-using ProductSite.TemplateGenerator;
+using SiteSharper.Model;
+using SiteSharper.TemplateGenerator;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	sealed class ModuleProcessor
 	{

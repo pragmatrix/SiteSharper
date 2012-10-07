@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using ProductSite.Model;
+using SiteSharper.Model;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	public static class PageContentAutoResolver
 	{

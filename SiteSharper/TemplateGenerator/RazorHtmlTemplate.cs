@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Web;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	public abstract class RazorHtmlTemplate
 	{

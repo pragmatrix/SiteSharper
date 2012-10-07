@@ -2,7 +2,7 @@
 using System.IO;
 using Toolbox;
 
-namespace ProductSite.TemplateGenerator
+namespace SiteSharper.TemplateGenerator
 {
 	static class Template
 	{

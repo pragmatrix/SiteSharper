@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using ProductSite.Model;
+using SiteSharper.Model;
 
-namespace ProductSite
+namespace SiteSharper
 {
 	public sealed class SiteContext
 	{
