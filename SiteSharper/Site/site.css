@@ -1,0 +1,266 @@
+﻿/*
+generic
+*/
+
+a
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+img 
+{
+	border: 0px; /* ie9 */
+}
+
+.content a
+{
+	border-bottom: 1px dotted gray;
+}
+
+.frame
+{
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Tahoma, Arial, sans-serif;
+	line-height: 1;
+}
+
+.frame-fixed
+{
+	width: 900px;
+}
+
+.frame-flexible
+{
+	width: 80%;
+	min-width: 900px;
+}
+
+.logo 
+{
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.logo-name 
+{
+	font-size: 400%;
+}
+
+.logo-slogan 
+{
+	font-size: 75%;
+}
+
+.navigation
+{
+	background: #e4e4e4;
+	border-radius: 0.4em;
+	-moz-border-radius: 0.4em; /* ff */
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.navigation-item 
+{
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.navigation-item:hover
+{
+	border-bottom:solid lightskyblue 2px;
+}
+
+.navigation-item-current
+{
+	border-bottom:solid lightskyblue 2px;
+}
+
+.clear 
+{
+	clear: both;
+}
+
+#site-content-top
+{
+	padding-bottom: 0.5em;
+}
+
+#site-content-bottom
+{
+	padding-top: 1em;
+}
+
+h1
+{
+	font-weight: normal;
+}
+
+h2
+{
+	font-weight: normal;
+	border-bottom: solid 1px #ddd;
+	font-family: Georgia, Tahoma, Arial, sans-serif;
+}
+
+h3,h4,h5,h6
+{
+	font-weight: normal;
+}
+
+p {
+	line-height: 1.5;
+}
+
+/* footer */
+
+.footer 
+{
+	font-size: 75%;
+}
+
+.footer .navigation
+{
+	text-align: right;
+}
+
+.noselect {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+
+/* buttons
+	http://www.zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba
+ */
+
+.button{
+	background: #222 url(alert-overlay.png) repeat-x;
+	display: inline-block;
+	padding: 0.5em 0.8em 0.6em;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+
+	position: relative;
+	cursor: pointer;
+	
+	
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.button:hover {
+	background-color: #111;
+}
+
+
+/* Sizes ---------- */
+.small.button {
+	font-size: 11px;
+}
+.medium.button {
+	font-size: 13px;
+}
+.large.button {
+	font-size: 14px;
+}
+ 
+.button:active                         { top: 1px; left:1px }
+ 
+.green.button, .green.button:visited      { background-color: #91bd09; }
+.green.button:hover                       { background-color: #749a02; }
+.blue.button, .blue.button:visited        { background-color: #2daebf; }
+.blue.button:hover                        { background-color: #007d9a; }
+.red.button, .red.button:visited          { background-color: #e33100; }
+.red.button:hover                         { background-color: #872300; }
+.magenta.button, .magenta.button:visited  { background-color: #a9014b; }
+.magenta.button:hover                     { background-color: #630030; }
+.orange.button, .orange.button:visited    { background-color: #ff5c00; }
+.orange.button:hover                      { background-color: #d45500; }
+.yellow.button, .yellow.button:visited    { background-color: #ffb515; }
+.yellow.button:hover                      { background-color: #fc9200; }
+	
+/*
+	css alignment
+*/
+
+.column1of2 
+{
+	float: left;
+	margin: 0px;
+	width: 48%;
+}
+
+.column2of2 
+{
+	float: left;
+	margin: 0px;
+	width: 48%;
+}
+
+.columnspaceof2 
+{
+	float: left;
+	height: 1px;
+	width: 4%;
+}
+
+.column1of3
+{
+	float: left;
+	margin: 0px;
+	width: 31%;
+}
+
+.column2of3
+{
+	float: left;
+	margin: 0px;
+	width: 32%;
+}
+
+.column3of3
+{
+	float: left;
+	margin: 0px;
+	width: 31%;
+}
+
+.column12of3 
+{
+	float: left;
+	margin: 0px;
+	width: 66%;	
+}
+
+.column23of3 
+{
+	float: left;
+	margin: 0px;
+	width: 66%;	
+}
+
+.vspace2
+{
+	float: left;
+	height: 1px;
+	width: 3%;
+}

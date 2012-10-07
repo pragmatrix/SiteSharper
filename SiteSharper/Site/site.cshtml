@@ -1,0 +1,131 @@
+﻿@model ProductSite.PageContext
+
+@using System.Linq;
+@using System;
+@using Model = ProductSite.Model;
+
+@{
+	var site = Model.Site;
+	var siteContext = Model.SiteContext;
+	var page = Model.Page;
+	var homePage_ = site.HomePage_;
+	var logo_ = site.Logo_;
+	var menu = site.Menu;
+	var footerMenu = site.FooterMenu;
+	var shortcutIconFilename_ = siteContext.ShortcutIconFilename_;
+	Func<Model.Page, string> urlOf = site.urlOf;
+}
+
+<html>
+<head>
+	<!-- required for XHTML -->
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+	<title>@site.Name - @page.Name</title>
+	<link rel="stylesheet" href="site.css" type="text/css" media="screen"/> 
+
+	@if (shortcutIconFilename_ != null)
+	{
+	<link rel="shortcut icon" href="@shortcutIconFilename_" />
+	}
+
+	@{ WriteLiteral(site.renderFeeds());}
+
+	<!-- UserVoice -->
+	<script type="text/javascript">
+		var uvOptions = {};
+		(function () {
+			var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+			uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/n2LMkEE4AlHlrKn0ExdVQ.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+		})();
+	</script>
+
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen"/>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+</head>
+<body class="frame frame-fixed">
+
+	<div id="site-content-top" class="noselect">
+		<div class="logo">
+		
+	@if (logo_ != null)
+ {
+			<span class="logo-name">
+				@if (homePage_ != null)
+	{
+			<a href="@urlOf(homePage_)">
+					<img src="@logo_" alt="@site.Name"/>
+			</a>
+	}
+	else
+	{
+					<img src="@logo_" alt="@site.Name"/>
+	}
+			</span>
+ }
+ else
+ {
+			<span class="logo-name">
+				@if (homePage_ != null)
+	{
+					<a href="@urlOf(homePage_)">@site.Name</a>
+	}
+	else
+	{
+					@site.Name
+	}
+			</span>
+ }
+			<span class="logo-slogan">
+				@site.Slogan
+			</span>
+		</div>
+	
+		<div class="navigation">
+				@foreach (var menuPage in menu.Pages)
+	{
+		var url = urlOf(menuPage);
+		var name = menuPage.Name;
+		if (menuPage.Id == page.Id)
+		{
+						<a class="navigation-item navigation-item-current" href="@url">@name</a>
+		}
+		else
+		{
+						<a class="navigation-item" href="@url">@name</a>
+		}
+	}
+		</div>
+	</div>
+
+	<div class="content">
+		@{ WriteLiteral(page.Content); }
+	</div>
+
+	<div id="site-content-bottom">
+		<div class="footer noselect">
+			<div class="navigation">
+				@foreach (var menuPage in footerMenu.Pages)
+	{
+		var url = urlOf(menuPage);
+		var name = menuPage.Name;
+		if (menuPage.Id == page.Id)
+		{
+						<a class="navigation-item navigation-item-current" href="@url">@name</a>
+		}
+		else
+		{
+						<a class="navigation-item" href="@url">@name</a>
+		}
+	}
+			</div>
+		</div>
+	</div>	 
+
+	@{WriteLiteral(siteContext.TrackingCode);}
+</body>
+</html>

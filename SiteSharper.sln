@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSharper", "SiteSharper\SiteSharper.csproj", "{1DEAA324-0F90-468E-86FA-25E5FFD47A83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B7D5CC67-E804-4654-A375-4520E90FBB55}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug MonoMac|x86 = Debug MonoMac|x86
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|x86.ActiveCfg = Debug MonoMac|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug MonoMac|x86.Build.0 = Debug MonoMac|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|x86.ActiveCfg = Debug|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Debug|x86.Build.0 = Debug|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|x86.ActiveCfg = Release|x86
+		{1DEAA324-0F90-468E-86FA-25E5FFD47A83}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
