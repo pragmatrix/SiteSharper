@@ -3,7 +3,6 @@ using System.Dynamic;
 using System.Linq;
 using Toolbox;
 
-
 namespace SiteSharper
 {
 	public sealed class CommandLineParameters : DynamicObject
