@@ -2,3 +2,5 @@
 /packages/
 /SiteSharper/bin/
 /SiteSharper/obj/
+/Debug/
+/Release/
