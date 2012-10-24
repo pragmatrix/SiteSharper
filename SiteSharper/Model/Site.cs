@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Toolbox;
 
 namespace SiteSharper.Model
 {
@@ -97,9 +98,16 @@ namespace SiteSharper.Model
 
 		public IEnumerable<Page> Pages
 		{
-			get { return Menu.Pages.Concat(FooterMenu.Pages).Distinct(); }
-		}
+			get
+			{
+				var pages = Menu.Pages.Concat(FooterMenu.Pages);
 
+				if (HomePage_ != null)
+					pages = pages.append(HomePage_);
+
+				return pages.Distinct();
+			}
+		}
 
 		public string urlOf(Page page)
 		{
