@@ -107,8 +107,6 @@
     <Compile Include="TemplateGenerator\TemplateCompiler.cs" />
     <Compile Include="TemplateGenerator\TemplateParser.cs" />
     <Compile Include="ExtractHTML.cs" />
-    <Compile Include="Toolbox\StringExtensions.cs" />
-    <Compile Include="Toolbox\Two.cs" />
     <Compile Include="XHTMLWriter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -229,7 +227,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Replicator.Site\Toolbox.Essentials\Toolbox.Essentials.csproj">
+      <Project>{80c903af-5f58-4fd7-87c8-cd85cab4115b}</Project>
+      <Name>Toolbox.Essentials</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
