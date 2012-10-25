@@ -24,9 +24,9 @@ namespace SiteSharper.Model
 		const string BottomId = "site-content-bottom";
 		const string Head = "site-head";
 
-		internal override void writePage(PageContext context, string html)
+		internal override void writePage(PageWriter writer, string html)
 		{
-			var site = context.Site;
+			var siteWriter = writer.SiteWriter;
 
 			var top = ExtractHTML.byId(html, TopId);
 			var bottom = ExtractHTML.byId(html, BottomId);
@@ -35,11 +35,11 @@ namespace SiteSharper.Model
 			var themePath = Path.Combine(contentPath, "themes");
 			var thisThemePath = Path.Combine(themePath, _themeName);
 
-			site.writeHTML(Path.Combine(thisThemePath, TopId) + ".html", top);
-			site.writeHTML(Path.Combine(thisThemePath, BottomId) + ".html", bottom);
+			siteWriter.writeHTML(Path.Combine(thisThemePath, TopId) + ".html", top);
+			siteWriter.writeHTML(Path.Combine(thisThemePath, BottomId) + ".html", bottom);
 
 			var header = ExtractHTML.contentOfElement(html, "head");
-			site.writeHTML(Path.Combine(thisThemePath, Head + ".html" ), header);
+			siteWriter.writeHTML(Path.Combine(thisThemePath, Head + ".html" ), header);
 		}
 	}
 }

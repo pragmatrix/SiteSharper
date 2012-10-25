@@ -13,7 +13,7 @@ namespace SiteSharper
 	{
 		readonly Dictionary<string, CompiledTemplate> _moduleTemplates = new Dictionary<string, CompiledTemplate>();
 
-		public string postProcess(PageContext context, string xml)
+		public string postProcess(PageWriter writer, string xml)
 		{
 			bool anyModulesReplaced;
 			var document = ExtractHTML.loadWithoutDTD(xml);
@@ -25,10 +25,10 @@ namespace SiteSharper
 				foreach (var reference in references)
 				{
 					var moduleName = reference.URI.LocalPath;
-					var template = resolveModuleTemplate(context.Site, moduleName);
+					var template = resolveModuleTemplate(writer.Site, moduleName);
 
 					var parameters = ModuleParameters.fromReference(reference);
-					var moduleContext = new ModuleContext(context, parameters);
+					var moduleContext = new ModuleContext(writer, parameters);
 					var moduleHTML = "<root>" + template.generateHTML(moduleContext) + "</root>";
 					var moduleDocument = ExtractHTML.loadWithoutDTD(moduleHTML);
 					reference.expand(moduleDocument.DocumentElement.ChildNodes);

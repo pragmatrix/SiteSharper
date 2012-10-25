@@ -8,11 +8,14 @@ namespace SiteSharper
 	public sealed class SiteGenerator
 	{
 		readonly CompiledTemplate _template;
+		readonly string _outputPath;
 
-		public SiteGenerator()
+		public SiteGenerator(string outputPath)
 		{
+			_outputPath = outputPath;
+
 			var siteSource = Path.Combine(AssemblyPath, "Site");
-			_template = Template.compile<PageContext>(Path.Combine(siteSource, SiteTemplateFilename));
+			_template = Template.compile<PageWriter>(Path.Combine(siteSource, SiteTemplateFilename));
 		}
 
 		public static readonly string AssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -27,7 +30,7 @@ namespace SiteSharper
 
 		void generatePages(Site site)
 		{
-			var context = SiteContext.create(site);
+			var context = SiteWriter.create(site, _outputPath);
 			foreach (var page in site.Pages)
 			{
 				if (page.URL_ != null)
@@ -37,7 +40,7 @@ namespace SiteSharper
 			}
 		}
 
-		static void copyResources(Site site)
+		void copyResources(Site site)
 		{
 			foreach (var resource in site.Resources)
 				copyResource(resource);
@@ -46,17 +49,16 @@ namespace SiteSharper
 				copyResource(site.ShortcutIcon_);
 		}
 
-		static void copyResource(string resource)
+		void copyResource(string resource)
 		{
 			var fn = Path.GetFileName(resource);
-			var targetPath = Path.Combine(SiteHtmlWriter.OutputDirectory, fn);
+			var targetPath = Path.Combine(_outputPath, fn);
 			File.Copy(resource, targetPath, true);
 		}
 
-		
-		void generatePage(SiteContext site, Page page)
+		void generatePage(SiteWriter site, Page page)
 		{
-			var context = new PageContext(site, page);
+			var context = new PageWriter(site, page);
 			var html = _template.generateHTML(context);
 			page.writePage(context, html);
 		}

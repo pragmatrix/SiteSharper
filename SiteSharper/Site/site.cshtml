@@ -1,4 +1,4 @@
-﻿@model SiteSharper.PageContext
+﻿@model SiteSharper.PageWriter
 
 @using System.Linq;
 @using System;
@@ -6,7 +6,7 @@
 
 @{
 	var site = Model.Site;
-	var siteContext = Model.SiteContext;
+	var siteContext = Model.SiteWriter;
 	var page = Model.Page;
 	var homePage_ = site.HomePage_;
 	var logo_ = site.Logo_;

@@ -4,22 +4,22 @@ namespace SiteSharper
 {
 	public sealed class ModuleContext
 	{
-		public ModuleContext(PageContext page, dynamic parameters)
+		public ModuleContext(PageWriter page, dynamic parameters)
 		{
 			_page = page;
 			Parameters = parameters;
 		}
 
-		readonly PageContext _page;
+		readonly PageWriter _page;
 	
 		public Site Site
 		{
 			get { return _page.Site; }
 		}
 
-		public SiteContext SiteContext
+		public SiteWriter SiteWriter
 		{
-			get { return _page.SiteContext; }
+			get { return _page.SiteWriter; }
 		}
 
 		public Page Page

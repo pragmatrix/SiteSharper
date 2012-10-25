@@ -7,17 +7,19 @@ using SiteSharper.Readers;
 
 namespace SiteSharper
 {
-	public sealed class SiteContext
+	public sealed class SiteWriter
 	{
+		readonly string _outputPath;
 		readonly ModuleProcessor _moduleProcessor = new ModuleProcessor();
 
 		public Site Site { get; private set; }
 		public string TrackingCode { get; private set; }
 		public string ShortcutIconFilename_ { get; private set; }
-		JournalData[] _journals;
+		readonly JournalData[] _journals;
 
-		SiteContext(Site site, string trackingCode, string shortcutIconFilename_)
+		SiteWriter(Site site, string outputPath, string trackingCode, string shortcutIconFilename_)
 		{
+			_outputPath = outputPath;
 			Site = site;
 			TrackingCode = trackingCode;
 			ShortcutIconFilename_ = shortcutIconFilename_;
@@ -27,17 +29,17 @@ namespace SiteSharper
 				.ToArray();
 		}
 
-		public string postProcess(PageContext pageContext, string html)
+		public string postProcess(PageWriter pageWriter, string html)
 		{
-			return _moduleProcessor.postProcess(pageContext, html);
+			return _moduleProcessor.postProcess(pageWriter, html);
 		}
 
-		public static SiteContext create(Site site)
+		public static SiteWriter create(Site site, string outputPath)
 		{
 			var trackingCode = readTrackingCode(site.TrackingCodeFiles);
 			var shortcutIconFilename_ = tryGetShortcutIconFilename(site.ShortcutIcon_);
 	
-			return new SiteContext(site, trackingCode, shortcutIconFilename_);
+			return new SiteWriter(site, outputPath, trackingCode, shortcutIconFilename_);
 		}
 
 		static string readTrackingCode(IEnumerable<string> files)
@@ -64,6 +66,19 @@ namespace SiteSharper
 		public JournalData journalFor(string id)
 		{
 			return _journals.Single(j => j.Journal.Id == id);
+		}
+
+		public void writePage(Page page, string html)
+		{
+			writeHTML(Site.sitePathOf(page), html);
+		}
+
+		public void writeHTML(string relativePath, string html)
+		{
+			var outputPath = Path.Combine(_outputPath, relativePath);
+			var outputDir = Path.GetDirectoryName(outputPath);
+			Directory.CreateDirectory(outputDir);
+			File.WriteAllText(outputPath, html);
 		}
 	}
 }

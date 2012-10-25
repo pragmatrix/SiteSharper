@@ -11,7 +11,7 @@
 	string id = param.journal;
 	int max = int.Parse(param.entries);
     
-	var sitecontext = Model.SiteContext;
+	var sitecontext = Model.SiteWriter;
 	var journal = sitecontext.journalFor(id);
 	var entries = journal.Entries.Take(max);
 }

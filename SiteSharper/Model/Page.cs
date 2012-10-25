@@ -40,9 +40,9 @@ namespace SiteSharper.Model
 			}
 		}
 
-		internal virtual void writePage(PageContext context, string html)
+		internal virtual void writePage(PageWriter writer, string html)
 		{
-			context.writePage(html);
+			writer.writePage(html);
 		}
 	}
 }

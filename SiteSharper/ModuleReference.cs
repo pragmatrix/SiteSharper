@@ -10,7 +10,7 @@ namespace SiteSharper
 		public readonly Uri URI;
 		public readonly XmlElement Element;
 		public readonly ModuleReferenceArguments Arguments;
-		public NameValueCollection NamedValues;
+		public readonly NameValueCollection NamedValues;
 
 		ModuleReference(Uri uri, XmlElement element, ModuleReferenceArguments arguments)
 		{
