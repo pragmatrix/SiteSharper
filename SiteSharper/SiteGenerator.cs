@@ -13,12 +13,11 @@ namespace SiteSharper
 		public SiteGenerator(string outputPath)
 		{
 			_outputPath = outputPath;
-
-			var siteSource = Path.Combine(AssemblyPath, "Site");
-			_template = Template.compile<PageWriter>(Path.Combine(siteSource, SiteTemplateFilename));
+			_template = Template.compile<PageWriter>(Path.Combine(SiteSourcePath, SiteTemplateFilename));
 		}
 
 		public static readonly string AssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+		public static readonly string SiteSourcePath = Path.Combine(AssemblyPath, "Site");
 
 		const string SiteTemplateFilename = "site.cshtml";
 
@@ -46,14 +45,19 @@ namespace SiteSharper
 				copyResource(resource);
 
 			if (site.ShortcutIcon_ != null)
-				copyResource(site.ShortcutIcon_);
+			{
+				copyResource(new Resource(site.ShortcutIcon_, string.Empty));
+			}
 		}
 
-		void copyResource(string resource)
+		void copyResource(Resource resource)
 		{
-			var fn = Path.GetFileName(resource);
-			var targetPath = Path.Combine(_outputPath, fn);
-			File.Copy(resource, targetPath, true);
+			var targetPath = Path.Combine(_outputPath, resource.RelativeTargetPath);
+
+			var dir = Path.GetDirectoryName(targetPath);
+			Directory.CreateDirectory(dir);
+
+			File.Copy(resource.SourcePath, targetPath, true);
 		}
 
 		void generatePage(SiteWriter site, Page page)

@@ -10,7 +10,7 @@ namespace SiteSharper
 		public static Site loadContentFromDirectory(this Site site, string directory)
 		{
 			site.loadPageSourcesFromDirectory(directory);
-			site.referResourcesFromDirectory(directory);
+			site.resources(directory);
 			return site;
 		}
 
@@ -30,12 +30,14 @@ namespace SiteSharper
 			}
 		}
 
-		static void referResourcesFromDirectory(this Site site, string directory)
+		public static Site resources(this Site site, string sourceDirectoryPath, string targetDirectory = "")
 		{
-			foreach (var res in Directory.GetFiles(directory).Where(isResourceFilename))
+			foreach (var res in Directory.GetFiles(sourceDirectoryPath).Where(isResourceFilename))
 			{
-				site.resource(res);
+				var name = Path.GetFileName(res);
+				site.resource(res, Path.Combine(targetDirectory, name));
 			}
+			return site;
 		}
 
 		static bool isResourceFilename(string str)
@@ -44,6 +46,6 @@ namespace SiteSharper
 			return -1 != Array.IndexOf(ResourceFileExtensions, ext);
 		}
 
-		static readonly string[] ResourceFileExtensions = new string[] { ".png", ".jpg"};
+		static readonly string[] ResourceFileExtensions = new string[] { ".png", ".jpg", ".gif", ".js", ".css"};
 	}
 }

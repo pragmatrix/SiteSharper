@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLineParameters.cs" />
+    <Compile Include="Model\Resource.cs" />
     <Compile Include="Reader\JournalEntry.cs" />
     <Compile Include="Reader\DateReader.cs" />
     <Compile Include="Reader\MarkdownReader.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Reader\JournalData.cs" />
     <Compile Include="SiteWriter.cs" />
     <Compile Include="SiteGenerator.cs" />
+    <Compile Include="StandardResources.cs" />
     <Compile Include="TemplateGenerator\CompiledTemplate.cs" />
     <Compile Include="TemplateGenerator\Template.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

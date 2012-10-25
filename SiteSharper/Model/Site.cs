@@ -9,12 +9,15 @@ namespace SiteSharper.Model
 {
 	public sealed class Site
 	{
-
 		public Site(string name, dynamic parameters)
 		{
 			Name = name;
 			Parameters = parameters;
 			ModulesDirectories.Add(Path.Combine(SiteGenerator.AssemblyPath, StandardModulesDirectory));
+
+			// these resources are required by our template for the time being.
+			this.defaultSiteCSS();
+			this.fancybox();
 		}
 
 		const string StandardModulesDirectory = "StandardModules";
@@ -26,7 +29,7 @@ namespace SiteSharper.Model
 		public string Logo_;
 		public Menu Menu = new Menu();
 		public Menu FooterMenu = new Menu();
-		public readonly List<string> Resources = new List<string>();
+		public readonly List<Resource> Resources = new List<Resource>();
 		public readonly List<Feed> Feeds = new List<Feed>();
 		public readonly List<string> ModulesDirectories = new List<string>();
 		public dynamic Parameters;
@@ -70,9 +73,12 @@ namespace SiteSharper.Model
 			return this;
 		}
 
-		public Site resource(string path)
+		public Site resource(string sourcePath, string relativeTargetPath = "")
 		{
-			Resources.Add(path);
+			if (relativeTargetPath == "")
+				relativeTargetPath = Path.GetFileName(sourcePath);
+
+			Resources.Add(new Resource(sourcePath, relativeTargetPath));
 			return this;
 		}
 
