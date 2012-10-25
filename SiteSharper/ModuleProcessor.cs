@@ -27,7 +27,7 @@ namespace SiteSharper
 					var moduleName = reference.URI.LocalPath;
 					var template = resolveModuleTemplate(context.Site, moduleName);
 
-					var parameters = ModuleContextParameters.fromReference(reference);
+					var parameters = ModuleParameters.fromReference(reference);
 					var moduleContext = new ModuleContext(context, parameters);
 					var moduleHTML = "<root>" + template.generateHTML(moduleContext) + "</root>";
 					var moduleDocument = ExtractHTML.loadWithoutDTD(moduleHTML);

@@ -87,7 +87,7 @@
     <Compile Include="Model\Page.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="ModuleContext.cs" />
-    <Compile Include="ModuleContextParameters.cs" />
+    <Compile Include="ModuleParameters.cs" />
     <Compile Include="ModuleProcessor.cs" />
     <Compile Include="ModuleReference.cs" />
     <Compile Include="ModuleReferenceArguments.cs" />

@@ -1,14 +1,15 @@
 ﻿@model SiteSharper.ModuleContext
+@using System.Linq;
 
 @{
 	/*
         journal: The id of the journal to use.
-        max: Maximum number of journal entries to print.
+        entries: Number of journal entries to print.
 	*/
 
 	var param = Model.Parameters;
 	string id = param.journal;
-	int max = param.max;
+	int max = int.Parse(param.entries);
     
 	var sitecontext = Model.SiteContext;
 	var journal = sitecontext.journalFor(id);

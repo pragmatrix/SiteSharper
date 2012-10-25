@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Specialized;
+using System.Web;
 using System.Xml;
 
 namespace SiteSharper
@@ -8,12 +10,14 @@ namespace SiteSharper
 		public readonly Uri URI;
 		public readonly XmlElement Element;
 		public readonly ModuleReferenceArguments Arguments;
+		public NameValueCollection NamedValues;
 
 		ModuleReference(Uri uri, XmlElement element, ModuleReferenceArguments arguments)
 		{
 			URI = uri;
 			Element = element;
 			Arguments = arguments;
+			NamedValues = HttpUtility.ParseQueryString(uri.Query);
 		}
 
 		public static ModuleReference extractByLink(Uri uri, XmlElement element)
