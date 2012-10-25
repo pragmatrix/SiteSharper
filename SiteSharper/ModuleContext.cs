@@ -17,6 +17,11 @@ namespace SiteSharper
 			get { return _page.Site; }
 		}
 
+		public SiteContext SiteContext
+		{
+			get { return _page.SiteContext; }
+		}
+
 		public Page Page
 		{
 			get { return _page.Page; }

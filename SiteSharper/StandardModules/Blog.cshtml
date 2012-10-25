@@ -2,21 +2,20 @@
 
 @{
 	/*
-		[0]: The id of the journal to use.
+        journal: The id of the journal to use.
+        max: Maximum number of journal entries to print.
 	*/
-	
+
 	var param = Model.Parameters;
-	var journalId = Model.Parameters.Journal;
+	string id = param.journal;
+	int max = param.max;
+    
+	var sitecontext = Model.SiteContext;
+	var journal = sitecontext.journalFor(id);
+	var entries = journal.Entries.Take(max);
 }
 
-<div>
-	<div class="column1of3">
-		@{WriteLiteral(param[0]);}
-	</div>
-	<div class="vspace2"></div>
-	<div class="column23of3">
-		@{WriteLiteral(param[1]);}
-	</div>
-</div>
-
-<div class="clear"/>
+@foreach(var j in entries)
+{
+	WriteLiteral(j.Content);
+}

@@ -4,7 +4,7 @@ using SiteSharper.Model;
 
 namespace SiteSharper.Readers
 {
-	sealed class JournalData
+	public sealed class JournalData
 	{
 		public Journal Journal;
 		public JournalEntry[] Entries;

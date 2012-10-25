@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using SiteSharper.Model;
 using SiteSharper.TemplateGenerator;
 
@@ -10,8 +11,13 @@ namespace SiteSharper
 
 		public SiteGenerator()
 		{
-			_template = Template.compile<PageContext>(SiteTemplateFilename);
+			var siteSource = Path.Combine(AssemblyPath, "Site");
+			_template = Template.compile<PageContext>(Path.Combine(siteSource, SiteTemplateFilename));
 		}
+
+		public static readonly string AssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+		const string SiteTemplateFilename = "site.cshtml";
 
 		public void generate(Site site)
 		{
@@ -47,7 +53,6 @@ namespace SiteSharper
 			File.Copy(resource, targetPath, true);
 		}
 
-		const string SiteTemplateFilename = SiteHtmlWriter.OutputDirectory + "/site.cshtml";
 		
 		void generatePage(SiteContext site, Page page)
 		{

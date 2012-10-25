@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using SiteSharper.Model;
+using SiteSharper.Readers;
 
 namespace SiteSharper
 {
@@ -12,12 +14,17 @@ namespace SiteSharper
 		public Site Site { get; private set; }
 		public string TrackingCode { get; private set; }
 		public string ShortcutIconFilename_ { get; private set; }
+		JournalData[] _journals;
 
 		SiteContext(Site site, string trackingCode, string shortcutIconFilename_)
 		{
 			Site = site;
 			TrackingCode = trackingCode;
 			ShortcutIconFilename_ = shortcutIconFilename_;
+
+			_journals = site.Journals
+				.Select(JournalData.read)
+				.ToArray();
 		}
 
 		public string postProcess(PageContext pageContext, string html)
@@ -52,6 +59,11 @@ namespace SiteSharper
 				return null;
 
 			return Path.GetFileName(fn_);
+		}
+
+		public JournalData journalFor(string id)
+		{
+			return _journals.Single(j => j.Journal.Id == id);
 		}
 	}
 }

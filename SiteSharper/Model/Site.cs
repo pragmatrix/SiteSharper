@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Toolbox;
@@ -8,14 +9,15 @@ namespace SiteSharper.Model
 {
 	public sealed class Site
 	{
-		const string StandardModulesDirectory = "StandardModules";
 
 		public Site(string name, dynamic parameters)
 		{
 			Name = name;
 			Parameters = parameters;
-			ModulesDirectories.Add(StandardModulesDirectory);
+			ModulesDirectories.Add(Path.Combine(SiteGenerator.AssemblyPath, StandardModulesDirectory));
 		}
+
+		const string StandardModulesDirectory = "StandardModules";
 
 		public readonly string Name;
 		public string Slogan = string.Empty;

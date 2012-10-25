@@ -26,7 +26,7 @@ namespace SiteSharper.TemplateGenerator
 			var parameters = new CompilerParameters(
 				// path does not work
 				// csharp.dll is for the use of dynamic
-				new[] { Path.GetFileName(baseAssembly.CodeBase), "System.Core.dll", "Microsoft.CSharp.dll"},
+				new[] { baseAssembly.Location, "System.Core.dll", "Microsoft.CSharp.dll"},
 				string.Empty,
 				false);
 

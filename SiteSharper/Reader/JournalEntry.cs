@@ -1,17 +1,18 @@
 using System;
+using System.IO;
 using SiteSharper.Reader;
 
 namespace SiteSharper.Readers
 {
-	sealed class JournalEntry
+	public sealed class JournalEntry
 	{
 		public DateTime Date;
 		public string Content;
 
-		public static JournalEntry fromFile(string file)
+		public static JournalEntry fromFile(string filePath)
 		{
-			var date = DateReader.fromFilename(file);
-			var content = MarkdownReader.fromFile(file);
+			var date = DateReader.fromFilename(Path.GetFileName(filePath));
+			var content = MarkdownReader.fromFile(filePath);
 			return new JournalEntry{ Date = date, Content = content};
 		}
 	}
