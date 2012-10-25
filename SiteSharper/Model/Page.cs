@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using MarkdownSharp;
+using SiteSharper.Reader;
 
 namespace SiteSharper.Model
 {
@@ -34,10 +35,8 @@ namespace SiteSharper.Model
 			{
 				if (ContentFilename == string.Empty)
 					return string.Empty;
-				
-				var text = File.ReadAllText(ContentFilename);
-				var md = new Markdown();
-				return md.Transform(text);
+
+				return MarkdownReader.fromFile(ContentFilename);
 			}
 		}
 

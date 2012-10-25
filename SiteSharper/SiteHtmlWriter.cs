@@ -7,7 +7,7 @@ namespace SiteSharper
 	{
 		public static void writePage(this Site site, Page page, string html)
 		{
-			site.writeHTML(site.filenameOf(page), html);
+			site.writeHTML(site.sitePathOf(page), html);
 		}
 
 		public static void writeHTML(this Site site, string relativePath, string html)

@@ -8,10 +8,13 @@ namespace SiteSharper.Model
 {
 	public sealed class Site
 	{
+		const string StandardModulesDirectory = "StandardModules";
+
 		public Site(string name, dynamic parameters)
 		{
 			Name = name;
 			Parameters = parameters;
+			ModulesDirectories.Add(StandardModulesDirectory);
 		}
 
 		public readonly string Name;
@@ -23,10 +26,11 @@ namespace SiteSharper.Model
 		public Menu FooterMenu = new Menu();
 		public readonly List<string> Resources = new List<string>();
 		public readonly List<Feed> Feeds = new List<Feed>();
-		public string ModulesDirectory_;
+		public readonly List<string> ModulesDirectories = new List<string>();
 		public dynamic Parameters;
 		public readonly List<string> TrackingCodeFiles = new List<string>();
 		public string ShortcutIcon_;
+		public readonly List<Journal> Journals = new List<Journal>(); 
 
 		public Site logo(string logo)
 		{
@@ -76,9 +80,17 @@ namespace SiteSharper.Model
 			return this;
 		}
 
+		public Site journal(Journal journal)
+		{
+			Journals.Add(journal);
+			return this;
+		}
+
+		#region File System Binding
+
 		public Site useModulesInDirectory(string directory)
 		{
-			ModulesDirectory_ = directory;
+			ModulesDirectories.Add(directory);
 			return this;
 		}
 
@@ -93,6 +105,8 @@ namespace SiteSharper.Model
 			ShortcutIcon_ = file;
 			return this;
 		}
+
+		#endregion
 
 		#region Queries
 
@@ -124,7 +138,7 @@ namespace SiteSharper.Model
 
 		#region Helpers
 
-		internal string filenameOf(Page page)
+		internal string sitePathOf(Page page)
 		{
 			if (page.URL_ != null)
 				throw new Exception("This page has no file associated");

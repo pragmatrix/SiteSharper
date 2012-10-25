@@ -75,7 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLineParameters.cs" />
+    <Compile Include="Reader\JournalEntry.cs" />
+    <Compile Include="Reader\DateReader.cs" />
+    <Compile Include="Reader\MarkdownReader.cs" />
     <Compile Include="Model\Feed.cs" />
+    <Compile Include="Model\Journal.cs" />
     <Compile Include="Model\Module.cs" />
     <Compile Include="Model\WordpressBlogPage.cs" />
     <Compile Include="Model\ForumPage.cs" />
@@ -94,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reader\JournalData.cs" />
     <Compile Include="SiteContext.cs" />
     <Compile Include="SiteGenerator.cs" />
     <Compile Include="SiteHtmlWriter.cs" />
@@ -110,6 +115,9 @@
     <Compile Include="XHTMLWriter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="StandardModules\Blog.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -233,6 +241,7 @@
       <Name>Toolbox.Essentials</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

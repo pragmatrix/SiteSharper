@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using SiteSharper.Model;
 using SiteSharper.TemplateGenerator;
+using Toolbox;
 
 namespace SiteSharper
 {
@@ -74,12 +75,15 @@ namespace SiteSharper
 
 		CompiledTemplate loadModuleTemplate(Site site, string name)
 		{
-			if (site.ModulesDirectory_ == null)
-				throw new Exception("Failed to load module template {0}: no modules directory set in site");
+			IEnumerable<string> modules = site.ModulesDirectories;
+			foreach (var dir in modules.Reverse())
+			{
+				var fn = Path.Combine(dir, name + ".cshtml");
+				if (File.Exists(fn))
+					return Template.compile<ModuleContext>(fn);
+			}
 
-			var dir = site.ModulesDirectory_;
-			var fn = Path.Combine(dir, name + ".cshtml");
-			return Template.compile<ModuleContext>(fn);
+			throw new Exception("Failed to load module template {0}: no module found".format(name));
 		}
 	}
 }
