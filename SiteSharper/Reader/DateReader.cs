@@ -5,14 +5,6 @@ namespace SiteSharper.Reader
 {
 	static class DateReader
 	{
-		public static DateTime fromFilename(string filename)
-		{
-			var firstSpace = filename.IndexOf(" ");
-			var code = firstSpace == -1 ? filename : filename.Substring(0, firstSpace);
-
-			return fromDateTimeCode(code);
-		}
-
 		public static DateTime fromDateTimeCode(string code)
 		{
 			switch (code.Length)

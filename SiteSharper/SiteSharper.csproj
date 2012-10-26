@@ -75,7 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLineParameters.cs" />
+    <Compile Include="Model\ContentPage.cs" />
     <Compile Include="Model\Resource.cs" />
+    <Compile Include="Reader\JournalEntryFilename.cs" />
     <Compile Include="Reader\JournalEntry.cs" />
     <Compile Include="Reader\DateReader.cs" />
     <Compile Include="Reader\MarkdownReader.cs" />
@@ -100,6 +102,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Reader\JournalData.cs" />
+    <Compile Include="Reader\ReadableURL.cs" />
     <Compile Include="SiteWriter.cs" />
     <Compile Include="SiteGenerator.cs" />
     <Compile Include="StandardResources.cs" />

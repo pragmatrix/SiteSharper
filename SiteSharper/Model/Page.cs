@@ -44,5 +44,10 @@ namespace SiteSharper.Model
 		{
 			writer.writePage(html);
 		}
+
+		public override string ToString()
+		{
+			return Id;
+		}
 	}
 }

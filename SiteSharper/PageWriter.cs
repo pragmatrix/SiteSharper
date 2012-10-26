@@ -2,7 +2,6 @@
 
 namespace SiteSharper
 {
-	// must be public to be accessible from a compiled page template.
 	public sealed class PageWriter
 	{
 		internal PageWriter(SiteWriter siteWriter, Page page)

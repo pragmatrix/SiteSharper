@@ -15,7 +15,7 @@ namespace SiteSharper
 		public Site Site { get; private set; }
 		public string TrackingCode { get; private set; }
 		public string ShortcutIconFilename_ { get; private set; }
-		readonly JournalData[] _journals;
+		public readonly JournalData[] Journals;
 
 		SiteWriter(Site site, string outputPath, string trackingCode, string shortcutIconFilename_)
 		{
@@ -24,7 +24,7 @@ namespace SiteSharper
 			TrackingCode = trackingCode;
 			ShortcutIconFilename_ = shortcutIconFilename_;
 
-			_journals = site.Journals
+			Journals = site.Journals
 				.Select(JournalData.read)
 				.ToArray();
 		}
@@ -65,7 +65,7 @@ namespace SiteSharper
 
 		public JournalData journalFor(string id)
 		{
-			return _journals.Single(j => j.Journal.Id == id);
+			return Journals.Single(j => j.Journal.Id == id);
 		}
 
 		public void writePage(Page page, string html)

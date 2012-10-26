@@ -35,7 +35,8 @@ namespace SiteSharper.Model
 		public dynamic Parameters;
 		public readonly List<string> TrackingCodeFiles = new List<string>();
 		public string ShortcutIcon_;
-		public readonly List<Journal> Journals = new List<Journal>(); 
+		public readonly List<Journal> Journals = new List<Journal>();
+		public string PageFileExtension = string.Empty;
 
 		public Site logo(string logo)
 		{
@@ -114,6 +115,12 @@ namespace SiteSharper.Model
 			return this;
 		}
 
+		public Site pageFileExtension(string ext)
+		{
+			PageFileExtension = ext;
+			return this;
+		}
+
 		#endregion
 
 		#region Queries
@@ -154,7 +161,7 @@ namespace SiteSharper.Model
 			if (page == HomePage_)
 				return "index.html";
 
-			return page.Id;
+			return page.Id + PageFileExtension;
 		}
 
 		public string renderFeeds()

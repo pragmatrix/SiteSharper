@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using System.Reflection;
 using SiteSharper.Model;
+using SiteSharper.Readers;
 using SiteSharper.TemplateGenerator;
+using Toolbox;
 
 namespace SiteSharper
 {
@@ -29,14 +31,24 @@ namespace SiteSharper
 
 		void generatePages(Site site)
 		{
-			var context = SiteWriter.create(site, _outputPath);
+			var writer = SiteWriter.create(site, _outputPath);
+			
 			foreach (var page in site.Pages)
 			{
 				if (page.URL_ != null)
 					continue;
 
-				generatePage(context, page);
+				generatePage(writer, page);
 			}
+
+			writer.Journals
+				.forEach(j => generateJournalPages(writer, j));
+		}
+
+		void generateJournalPages(SiteWriter writer, JournalData journal)
+		{
+			journal.createEntryPages()
+				.forEach(p => generatePage(writer, p));
 		}
 
 		void copyResources(Site site)
@@ -60,11 +72,11 @@ namespace SiteSharper
 			File.Copy(resource.SourcePath, targetPath, true);
 		}
 
-		void generatePage(SiteWriter site, Page page)
+		void generatePage(SiteWriter siteWriter, Page page)
 		{
-			var context = new PageWriter(site, page);
-			var html = _template.generateHTML(context);
-			page.writePage(context, html);
+			var writer = new PageWriter(siteWriter, page);
+			var html = _template.generateHTML(writer);
+			page.writePage(writer, html);
 		}
 	}
 }
