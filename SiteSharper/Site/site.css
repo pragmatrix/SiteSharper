@@ -18,6 +18,16 @@ img
 	border-bottom: 1px dotted gray;
 }
 
+.metainfo {
+	font-size: 75%;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.light {
+	color: gray;
+}
+
 .frame
 {
 	margin-left: auto;

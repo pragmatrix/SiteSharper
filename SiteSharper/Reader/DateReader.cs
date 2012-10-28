@@ -5,17 +5,33 @@ namespace SiteSharper.Reader
 {
 	static class DateReader
 	{
-		public static DateTime fromDateTimeCode(string code)
+		public static string printDateTimeCode(string code)
 		{
+			DateTime date = fromDateTimeCode(code);
+
 			switch (code.Length)
 			{
 				case 8:
 				case 10:
+				return date.ToString("D");
 				case 12:
-					break;
+				return date.ToString("f");
+			}
 
-				default:
-					throw new Exception("Expect date time code to contain 8, 10 or 12 characters: {0}".format(code));
+			return "";
+		}
+
+		public static DateTime fromDateTimeCode(string code)
+		{
+			switch (code.Length)
+			{
+			case 8:
+			case 10:
+			case 12:
+				break;
+
+			default:
+				throw new Exception("Expect date time code to contain 8, 10 or 12 characters: {0}".format(code));
 			}
 
 			var year = 0;
@@ -40,7 +56,6 @@ namespace SiteSharper.Reader
 			{
 				minute = int.Parse(code.Substring(10, 2));
 			}
-
 
 			return new DateTime(year, month, day, hour, minute, 0);
 		}

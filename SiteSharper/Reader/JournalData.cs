@@ -27,9 +27,10 @@ namespace SiteSharper.Reader
 			var content = MarkdownReader.fromFile(filePath);
 			var entryId = journal.Id + "/" + ReadableURL.read(filename.ToString());
 
-			var header = "[](module:BlogEntryHeader?entry={0}&name={1})".format(
+			var header = "[](module:BlogEntryHeader?entry={0}&name={1}&date={2})".format(
 				HttpUtility.UrlEncode(entryId), 
-				HttpUtility.UrlEncode(filename.NamePart));
+				HttpUtility.UrlEncode(filename.NamePart),
+				HttpUtility.UrlEncode(DateReader.printDateTimeCode(filename.DateTimeCode)));
 
 			var headerHTML = MarkdownReader.fromString(header);
 
