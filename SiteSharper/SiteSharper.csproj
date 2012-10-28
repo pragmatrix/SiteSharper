@@ -231,9 +231,9 @@
     <Content Include="Site\fancybox\jquery.mousewheel-3.0.4.pack.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Site\site.css">
+    <None Include="Site\site.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

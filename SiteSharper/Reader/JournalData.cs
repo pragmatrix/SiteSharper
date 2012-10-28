@@ -16,6 +16,7 @@ namespace SiteSharper.Reader
 		{
 			var entries = Directory.EnumerateFiles(journal.Path, "*.md")
 				.Select(f => loadJournalEntry(journal, f))
+				.OrderByDescending(entry => entry.Filename.ToString())
 				.ToArray();
 
 			return new JournalData {Journal = journal, Entries = entries};
