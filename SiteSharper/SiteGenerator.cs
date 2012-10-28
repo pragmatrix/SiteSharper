@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 using SiteSharper.Model;
-using SiteSharper.Readers;
+using SiteSharper.Reader;
 using SiteSharper.TemplateGenerator;
 using Toolbox;
 

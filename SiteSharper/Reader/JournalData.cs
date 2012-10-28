@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web;
 using SiteSharper.Model;
-using SiteSharper.Reader;
+using Toolbox;
 
-namespace SiteSharper.Readers
+namespace SiteSharper.Reader
 {
 	public sealed class JournalData
 	{
@@ -14,10 +15,25 @@ namespace SiteSharper.Readers
 		public static JournalData read(Journal journal)
 		{
 			var entries = Directory.EnumerateFiles(journal.Path, "*.md")
-				.Select(JournalEntry.fromFile)
+				.Select(f => loadJournalEntry(journal, f))
 				.ToArray();
 
 			return new JournalData {Journal = journal, Entries = entries};
+		}
+
+		static JournalEntry loadJournalEntry(Journal journal, string filePath)
+		{
+			var filename = JournalEntryFilename.fromFilename(Path.GetFileName(filePath));
+			var content = MarkdownReader.fromFile(filePath);
+			var entryId = journal.Id + "/" + ReadableURL.read(filename.ToString());
+
+			var header = "[](module:BlogEntryHeader?entry={0}&name={1})".format(
+				HttpUtility.UrlEncode(entryId), 
+				HttpUtility.UrlEncode(filename.NamePart));
+
+			var headerHTML = MarkdownReader.fromString(header);
+
+			return new JournalEntry { Id = entryId, Filename = filename, Content = headerHTML + content };
 		}
 
 		public IEnumerable<Page> createEntryPages()

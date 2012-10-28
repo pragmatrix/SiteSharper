@@ -1,0 +1,14 @@
+﻿@model SiteSharper.ModuleContext
+
+@{
+	/*
+        entry: The id of the entry (which is also its relative URL).
+        name: The name of the entry.
+	*/
+
+	var param = Model.Parameters;
+	string id = param.entry;
+	string name = param.name;
+}
+
+<h2><a href="/@id">@name</a></h2>

@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using SiteSharper.Model;
-using SiteSharper.Readers;
+using SiteSharper.Reader;
 
 namespace SiteSharper
 {

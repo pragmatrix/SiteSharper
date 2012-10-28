@@ -9,7 +9,7 @@ namespace SiteSharper.Reader
 
 		public static JournalEntryFilename fromFilename(string filename)
 		{
-			var i = filename.IndexOf(" ");
+			var i = filename.IndexOf(" ", System.StringComparison.Ordinal);
 			return i == -1 
 				? new JournalEntryFilename { DateTimeCode = "", NamePart = filename } 
 				: new JournalEntryFilename {DateTimeCode = filename.Substring(0, i), NamePart = Path.GetFileNameWithoutExtension(filename.Substring(i + 1))};

@@ -25,7 +25,6 @@ namespace SiteSharper
 			element = findReplaceableElement(element);
 			var arguments = ModuleReferenceArguments.scan(element);
 			return new ModuleReference(uri, element, arguments);
-
 		}
 
 		static XmlElement findReplaceableElement(XmlElement linkElement)
