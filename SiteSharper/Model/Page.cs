@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using MarkdownSharp;
 using SiteSharper.Reader;
+using SiteSharper.Writer;
 
 namespace SiteSharper.Model
 {

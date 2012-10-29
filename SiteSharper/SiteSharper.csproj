@@ -90,12 +90,12 @@
     <Compile Include="Model\Page.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="ModuleContext.cs" />
-    <Compile Include="ModuleParameters.cs" />
-    <Compile Include="ModuleProcessor.cs" />
-    <Compile Include="ModuleReference.cs" />
-    <Compile Include="ModuleReferenceArguments.cs" />
+    <Compile Include="Writer\ModuleParameters.cs" />
+    <Compile Include="Writer\ModuleProcessor.cs" />
+    <Compile Include="Writer\ModuleReference.cs" />
+    <Compile Include="Writer\ModuleReferenceArguments.cs" />
     <Compile Include="PageContentAutoResolver.cs" />
-    <Compile Include="PageWriter.cs" />
+    <Compile Include="Writer\PageWriter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,7 +103,8 @@
     </Compile>
     <Compile Include="Reader\JournalData.cs" />
     <Compile Include="Reader\ReadableURL.cs" />
-    <Compile Include="SiteWriter.cs" />
+    <Compile Include="Writer\RSSFeedWriter.cs" />
+    <Compile Include="Writer\SiteWriter.cs" />
     <Compile Include="SiteGenerator.cs" />
     <Compile Include="StandardResources.cs" />
     <Compile Include="TemplateGenerator\CompiledTemplate.cs" />
@@ -116,7 +117,7 @@
     <Compile Include="TemplateGenerator\TemplateCompiler.cs" />
     <Compile Include="TemplateGenerator\TemplateParser.cs" />
     <Compile Include="ExtractHTML.cs" />
-    <Compile Include="XHTMLWriter.cs" />
+    <Compile Include="Writer\XHTMLWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StandardModules\Blog.cshtml">
@@ -129,6 +130,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="StandardModules\BlogEntryHeader.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Site\RSSFeed.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Web.config" />

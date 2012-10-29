@@ -9,10 +9,15 @@
 		public readonly string Id;
 		public readonly string Path;
 
-		public Journal(string id, string path)
+		public readonly string Title;
+		public readonly string Description;
+
+		public Journal(string id, string path, string title, string description = "")
 		{
 			Id = id;
 			Path = path;
+			Title = title;
+			Description = description;
 		}
 	}
 }

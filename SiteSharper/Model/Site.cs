@@ -9,9 +9,10 @@ namespace SiteSharper.Model
 {
 	public sealed class Site
 	{
-		public Site(string name, dynamic parameters)
+		public Site(string name, string domainName, dynamic parameters)
 		{
 			Name = name;
+			DomainName = domainName;
 			Parameters = parameters;
 			ModulesDirectories.Add(Path.Combine(SiteGenerator.AssemblyPath, StandardModulesDirectory));
 
@@ -23,6 +24,7 @@ namespace SiteSharper.Model
 		const string StandardModulesDirectory = "StandardModules";
 
 		public readonly string Name;
+		public readonly string DomainName;
 		public string Slogan = string.Empty;
 		public string Description = string.Empty;
 		public Page HomePage_;

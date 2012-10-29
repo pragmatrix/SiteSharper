@@ -10,6 +10,13 @@ namespace SiteSharper.TemplateGenerator
 			return generateHTML(compiledTemplate.Assembly, compiledTemplate.FullyQualifiedClassName, model);
 		}
 
+		// no difference yet to HTML:
+
+		public static string generateXML(this CompiledTemplate compiledTemplate, object model)
+		{
+			return generateHTML(compiledTemplate.Assembly, compiledTemplate.FullyQualifiedClassName, model);
+		}
+
 		static string generateHTML(Assembly assembly, string fullyQualitiedTemplateClassName, object model)
 		{
 			var generatedType = assembly.GetType(fullyQualitiedTemplateClassName);

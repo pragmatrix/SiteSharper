@@ -1,6 +1,6 @@
 ﻿using SiteSharper.Model;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	public sealed class PageWriter
 	{

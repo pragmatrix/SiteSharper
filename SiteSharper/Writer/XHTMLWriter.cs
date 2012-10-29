@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	static class XHTMLWriter
 	{

@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.Dynamic;
 using System.Linq;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	sealed class ModuleParameters : DynamicObject
 	{

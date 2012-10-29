@@ -5,5 +5,10 @@ namespace SiteSharper.Reader
 		public string Id;
 		public JournalEntryFilename Filename;
 		public string Content;
+
+		public string Title
+		{
+			get { return Filename.NamePart; }
+		}
 	}
 }

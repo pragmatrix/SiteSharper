@@ -1,0 +1,24 @@
+﻿@model SiteSharper.Writer.RSSFeedWriter
+
+@{
+	var data = Model.Journal;
+	var journal = data.Journal;
+	var entries = data.Entries;
+}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>@journal.Title</title>
+		<link>http://@Model.SiteDomainName</link>
+		<description>@journal.Description</description>
+        
+        @foreach (var entry in entries)
+        {
+	        <item>
+		        <title>@entry.Title</title>
+		        <link>http://@Model.SiteDomainName/@entry.Id</link>
+                <description>@entry.Content</description>
+	        </item>		
+        }
+	</channel>
+</rss>

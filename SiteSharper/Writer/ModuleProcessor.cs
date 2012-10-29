@@ -7,7 +7,7 @@ using SiteSharper.Model;
 using SiteSharper.TemplateGenerator;
 using Toolbox;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	sealed class ModuleProcessor
 	{

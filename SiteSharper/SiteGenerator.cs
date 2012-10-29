@@ -1,27 +1,32 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using SiteSharper.Model;
 using SiteSharper.Reader;
 using SiteSharper.TemplateGenerator;
+using SiteSharper.Writer;
 using Toolbox;
 
 namespace SiteSharper
 {
 	public sealed class SiteGenerator
 	{
-		readonly CompiledTemplate _template;
+		readonly CompiledTemplate _pageTemplate;
+		readonly CompiledTemplate _rssTemplate;
 		readonly string _outputPath;
 
 		public SiteGenerator(string outputPath)
 		{
 			_outputPath = outputPath;
-			_template = Template.compile<PageWriter>(Path.Combine(SiteSourcePath, SiteTemplateFilename));
+			_pageTemplate = Template.compile<PageWriter>(Path.Combine(SiteSourcePath, SiteTemplateFilename));
+			_rssTemplate = Template.compile<RSSFeedWriter>(Path.Combine(SiteSourcePath, RSSFeedTemplateFilename));
 		}
 
 		public static readonly string AssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 		public static readonly string SiteSourcePath = Path.Combine(AssemblyPath, "Site");
 
 		const string SiteTemplateFilename = "site.cshtml";
+		const string RSSFeedTemplateFilename = "RSSFeed.cshtml";
 
 		public void generate(Site site)
 		{
@@ -42,7 +47,18 @@ namespace SiteSharper
 			}
 
 			writer.Journals
+				.forEach(j => generateJournalFeed(writer, j));
+
+			writer.Journals
 				.forEach(j => generateJournalPages(writer, j));
+		}
+
+		void generateJournalFeed(SiteWriter writer, JournalData journal)
+		{
+			var siteDomain = writer.Site.DomainName;
+			var rssWriter = new RSSFeedWriter(journal, siteDomain);
+			var res = _rssTemplate.generateXML(rssWriter);
+			writer.writeFeed(rssWriter, res);
 		}
 
 		void generateJournalPages(SiteWriter writer, JournalData journal)
@@ -75,7 +91,7 @@ namespace SiteSharper
 		void generatePage(SiteWriter siteWriter, Page page)
 		{
 			var writer = new PageWriter(siteWriter, page);
-			var html = _template.generateHTML(writer);
+			var html = _pageTemplate.generateHTML(writer);
 			page.writePage(writer, html);
 		}
 	}

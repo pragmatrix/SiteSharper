@@ -5,7 +5,7 @@ using System.Text;
 using SiteSharper.Model;
 using SiteSharper.Reader;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	public sealed class SiteWriter
 	{
@@ -70,10 +70,15 @@ namespace SiteSharper
 
 		public void writePage(Page page, string html)
 		{
-			writeHTML(Site.sitePathOf(page), html);
+			writeText(Site.sitePathOf(page), html);
 		}
 
-		public void writeHTML(string relativePath, string html)
+		public void writeFeed(RSSFeedWriter writer, string feed)
+		{
+			writeText(writer.SitePath, feed);
+		}
+
+		public void writeText(string relativePath, string html)
 		{
 			var outputPath = Path.Combine(_outputPath, relativePath);
 			var outputDir = Path.GetDirectoryName(outputPath);

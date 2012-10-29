@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SiteSharper.Writer;
 
 namespace SiteSharper.Model
 {
@@ -35,11 +36,11 @@ namespace SiteSharper.Model
 			var themePath = Path.Combine(contentPath, "themes");
 			var thisThemePath = Path.Combine(themePath, _themeName);
 
-			siteWriter.writeHTML(Path.Combine(thisThemePath, TopId) + ".html", top);
-			siteWriter.writeHTML(Path.Combine(thisThemePath, BottomId) + ".html", bottom);
+			siteWriter.writeText(Path.Combine(thisThemePath, TopId) + ".html", top);
+			siteWriter.writeText(Path.Combine(thisThemePath, BottomId) + ".html", bottom);
 
 			var header = ExtractHTML.contentOfElement(html, "head");
-			siteWriter.writeHTML(Path.Combine(thisThemePath, Head + ".html" ), header);
+			siteWriter.writeText(Path.Combine(thisThemePath, Head + ".html" ), header);
 		}
 	}
 }

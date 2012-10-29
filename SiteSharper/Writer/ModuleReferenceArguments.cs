@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	public sealed class ModuleReferenceArguments
 	{

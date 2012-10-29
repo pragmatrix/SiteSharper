@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.Web;
 using System.Xml;
 
-namespace SiteSharper
+namespace SiteSharper.Writer
 {
 	sealed class ModuleReference
 	{
