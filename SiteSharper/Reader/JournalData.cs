@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -35,7 +36,15 @@ namespace SiteSharper.Reader
 
 			var headerHTML = MarkdownReader.fromString(header);
 
-			return new JournalEntry { Id = entryId, Filename = filename, Content = headerHTML + content };
+			var date = DateReader.fromDateTimeCode(filename.DateTimeCode);
+
+			return new JournalEntry
+			{
+				Id = entryId, 
+				Filename = filename, 
+				Content = headerHTML + content,
+				Date = date
+			};
 		}
 
 		public IEnumerable<Page> createEntryPages()
@@ -50,6 +59,26 @@ namespace SiteSharper.Reader
 			var pageId = Journal.Id + "/" + fileId;
 
 			return new ContentPage(pageId, filename.NamePart, entry.Content);
+		}
+
+		public IEnumerable<JournalEntry> FeedEntries
+		{
+			get
+			{
+				var feedSettings = Journal.FeedSettings;
+				var index = 0;
+				var cutOffDate = DateTime.Now + feedSettings.MinimumTimeSpanToCover;
+
+				foreach (var entry in Entries)
+				{
+					if (index < feedSettings.MinimumNumberOfItems || entry.Date < cutOffDate)
+						yield return entry;
+					else
+						break;
+
+					++index;
+				}
+			}
 		}
 	}
 }

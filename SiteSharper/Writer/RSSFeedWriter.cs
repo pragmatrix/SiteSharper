@@ -11,7 +11,8 @@ namespace SiteSharper.Writer
 		{
 			get
 			{
-				return Journal.Journal.SitePath; }
+				return Journal.Journal.FeedSitePath; 
+			}
 		}
 
 		public RSSFeedWriter(JournalData journal, string siteDomainName)
