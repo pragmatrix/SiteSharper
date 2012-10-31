@@ -16,8 +16,10 @@
         {
 	        <item>
 		        <title>@entry.Title</title>
-		        <link>http://@Model.SiteDomainName/@entry.Id</link>
-                <description>@entry.Content</description>
+				<link>http://@Model.SiteDomainName/@entry.Id</link>
+				<pubDate>@entry.RFC822Date</pubDate>
+				<guid>http://@Model.SiteDomainName/@entry.Id</guid>
+				<description>@entry.Content</description>
 	        </item>		
         }
 	</channel>
