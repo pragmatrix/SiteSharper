@@ -19,5 +19,10 @@
 			Title = title;
 			Description = description;
 		}
+
+		public string SitePath
+		{
+			get { return Id + "/feed"; }
+		}
 	}
 }
