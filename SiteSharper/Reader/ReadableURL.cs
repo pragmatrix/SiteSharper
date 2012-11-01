@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Linq;
 
 namespace SiteSharper.Reader
 {
@@ -6,8 +7,18 @@ namespace SiteSharper.Reader
 	{
 		public static string read(string name)
 		{
-			var sanitized = name.ToLowerInvariant().Replace(" ", "-");
-			return HttpUtility.UrlEncode(sanitized);
+			return new string(name
+				.ToLowerInvariant()
+				.Replace(" ", "-")
+				.Where(c => !isBadCharacter(c))
+				.ToArray());
 		}
+
+		static bool isBadCharacter(char c)
+		{
+			return BadCharacters.IndexOf(c) != -1;
+		}
+		// http://www.blooberry.com/indexdot/html/topics/urlencoding.htm
+		const string BadCharacters = "$&+,/:;=?@\"<>#%{}|\\^~[]`";
 	}
 }
