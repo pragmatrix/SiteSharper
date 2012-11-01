@@ -63,6 +63,9 @@ namespace SiteSharper
 
 		void generateJournalPages(SiteWriter writer, JournalData journal)
 		{
+			var indexPage = journal.createIndexPage();
+			generatePage(writer, indexPage);
+
 			journal.createEntryPages()
 				.forEach(p => generatePage(writer, p));
 		}

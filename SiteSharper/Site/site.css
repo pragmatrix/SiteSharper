@@ -28,12 +28,15 @@ img
 	color: gray;
 }
 
+.monospace {
+	font-family: monospace;
+}
+
 .frame
 {
 	margin-left: auto;
 	margin-right: auto;
 	font-family: Tahoma, Arial, sans-serif;
-	line-height: 1;
 }
 
 .frame-fixed
@@ -66,8 +69,8 @@ img
 .navigation
 {
 	background: #e4e4e4;
-	border-radius: 0.4em;
-	-moz-border-radius: 0.4em; /* ff */
+	/* border-radius: 0.4em; */
+	/* -moz-border-radius: 0.4em;*/ /* ff */
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }

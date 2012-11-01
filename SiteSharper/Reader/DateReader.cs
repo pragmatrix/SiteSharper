@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Toolbox;
 
 namespace SiteSharper.Reader
@@ -13,9 +14,8 @@ namespace SiteSharper.Reader
 			{
 				case 8:
 				case 10:
-				return date.ToString("D");
 				case 12:
-				return date.ToString("f");
+					return date.ToString("MMMM dd, yyyy", CultureInfo.InvariantCulture);
 			}
 
 			return "";

@@ -1,0 +1,29 @@
+﻿@model SiteSharper.ModuleContext
+@using System.Linq;
+
+@{
+	/*
+        journal: The id of the journal to use.
+	*/
+
+	var param = Model.Parameters;
+	string id = param.journal;
+    
+	var sitecontext = Model.SiteWriter;
+	var journal = sitecontext.journalFor(id);
+	var entries = journal.Entries;
+}
+
+<h3>@journal.Journal.Title</h3>
+
+<ul>
+@foreach(var entry in entries)
+{
+	<li>
+    	<a href="/@entry.Id">
+			<span class="light monospace">@entry.ShortDate » </span>
+	        @entry.Title
+		</a>
+	</li>
+}
+</ul>

@@ -49,6 +49,14 @@ namespace SiteSharper.Reader
 			};
 		}
 
+		public Page createIndexPage()
+		{
+			var markdown = "[](module:JournalIndex?journal={0})".format(
+				HttpUtility.UrlEncode(Journal.Id));
+
+			return new ContentPage(Journal.Id + "/index", Journal.Title, MarkdownReader.fromString(markdown));
+		}
+
 		public IEnumerable<Page> createEntryPages()
 		{
 			return Entries.Select(createEntryPage);

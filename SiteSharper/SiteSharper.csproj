@@ -135,6 +135,9 @@
     <None Include="Site\RSSFeed.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="StandardModules\JournalIndex.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
