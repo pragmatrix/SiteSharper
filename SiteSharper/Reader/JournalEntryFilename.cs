@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Web;
 
 namespace SiteSharper.Reader
 {
@@ -10,9 +11,26 @@ namespace SiteSharper.Reader
 		public static JournalEntryFilename fromFilename(string filename)
 		{
 			var i = filename.IndexOf(" ", System.StringComparison.Ordinal);
-			return i == -1 
-				? new JournalEntryFilename { DateTimeCode = "", NamePart = filename } 
-				: new JournalEntryFilename {DateTimeCode = filename.Substring(0, i), NamePart = Path.GetFileNameWithoutExtension(filename.Substring(i + 1))};
+
+			var dateTimeCode = "";
+			var namePart = "";
+
+			if (i == -1)
+			{
+				dateTimeCode = "";
+				namePart = filename;
+			}
+			else
+			{
+				dateTimeCode = filename.Substring(0, i);
+				namePart = Path.GetFileNameWithoutExtension(filename.Substring(i + 1));
+			}
+
+			return new JournalEntryFilename
+			{
+				DateTimeCode = dateTimeCode,
+				NamePart = HttpUtility.UrlDecode(namePart)
+			};
 		}
 
 		public override string ToString()
