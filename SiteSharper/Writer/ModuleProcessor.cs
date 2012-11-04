@@ -16,7 +16,7 @@ namespace SiteSharper.Writer
 		public string postProcess(PageWriter writer, string xml)
 		{
 			bool anyModulesReplaced;
-			var document = ExtractHTML.loadWithoutDTD(xml);
+			var document = ExtractHTML.loadHTML(xml);
 			do
 			{
 				anyModulesReplaced = false;

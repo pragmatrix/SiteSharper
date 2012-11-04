@@ -35,12 +35,54 @@ namespace SiteSharper
 				XmlResolver = null, 
 				DtdProcessing = DtdProcessing.Ignore
 			};
-			var doc = new XmlDocument {PreserveWhitespace = true};
+			var doc = new XmlDocument
+			{
+				PreserveWhitespace = true
+			};
+
 			using (var sr = new StringReader(html))
 			using (var reader = XmlReader.Create(sr, settings))
 				doc.Load(reader);
+
 			return doc;
 		}
+
+		/*
+			This expects a HTML document structured without a DOCTYPE beginning and ending with 
+			the html element <html>CONTENT</html>
+		*/
+
+		public static XmlDocument loadHTML(string html)
+		{
+			var settings = new XmlReaderSettings
+			{
+				XmlResolver = null,
+				DtdProcessing = DtdProcessing.Parse
+			};
+			var doc = new XmlDocument
+			{
+				PreserveWhitespace = true
+			};
+
+			using (var sr = new StringReader(HTMLDocType + html))
+			using (var reader = XmlReader.Create(sr, settings))
+				doc.Load(reader);
+
+			removeDocumentType(doc);
+
+			return doc;
+		}
+
+
+		// todo: add missing html entities.
+
+		const string HTMLDocType = "<!DOCTYPE html[" +
+			"<!ENTITY nbsp \"&#160;\">" +
+			"<!ENTITY hellip \"&#133;\">" +
+			"<!ENTITY ldquo \"&#8220;\">" +
+			"<!ENTITY rdquo \"&#8221;\">" +
+			"<!ENTITY ndash \"&#8211;\">" +
+			"]>\n";
 
 		// GetElementById works only if the DTD specified it.
 
@@ -58,6 +100,19 @@ namespace SiteSharper
 		{
 			var list = document.SelectNodes("//{0}/*".format(element));
 			return list.Cast<XmlElement>();
+		}
+
+		static void removeDocumentType(XmlDocument doc)
+		{
+			foreach (var n in doc.ChildNodes)
+			{
+				var docTypeNode = n as XmlDocumentType;
+				if (docTypeNode != null)
+				{
+					doc.RemoveChild(docTypeNode);
+					break;
+				}
+			}
 		}
 	}
 }

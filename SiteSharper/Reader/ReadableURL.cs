@@ -19,6 +19,7 @@ namespace SiteSharper.Reader
 			return BadCharacters.IndexOf(c) != -1;
 		}
 		// http://www.blooberry.com/indexdot/html/topics/urlencoding.htm
-		const string BadCharacters = "$&+,/:;=?@\"<>#%{}|\\^~[]`";
+		// And we also add (), because Drupal does.
+		const string BadCharacters = "$&+,/:;=?@\"<>#%{}|\\^~[]`()";
 	}
 }
