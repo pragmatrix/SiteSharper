@@ -26,10 +26,12 @@ namespace SiteSharper.Reader
 				namePart = Path.GetFileNameWithoutExtension(filename.Substring(i + 1));
 			}
 
+			// '+' is converted to a space in UrlDecode, so we escape them first.
+
 			return new JournalEntryFilename
 			{
 				DateTimeCode = dateTimeCode,
-				NamePart = HttpUtility.UrlDecode(namePart)
+				NamePart = HttpUtility.UrlDecode(namePart.Replace("+", "%2b"))
 			};
 		}
 

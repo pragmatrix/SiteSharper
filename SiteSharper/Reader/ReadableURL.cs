@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Linq;
+﻿using System.Linq;
 
 namespace SiteSharper.Reader
 {
@@ -19,7 +18,7 @@ namespace SiteSharper.Reader
 			return BadCharacters.IndexOf(c) != -1;
 		}
 		// http://www.blooberry.com/indexdot/html/topics/urlencoding.htm
-		// And we also add (), because Drupal does.
-		const string BadCharacters = "$&+,/:;=?@\"<>#%{}|\\^~[]`()";
+		// And we also add "().", because Drupal does.
+		const string BadCharacters = "$&+,/:;=?@\"<>#%{}|\\^~[]`().";
 	}
 }
