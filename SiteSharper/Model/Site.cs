@@ -97,6 +97,8 @@ namespace SiteSharper.Model
 			Journals.Add(journal);
 			var journalFeed = new Feed(journal.Title, "http://" + DomainName + "/" + journal.FeedSitePath);
 			feed(journalFeed);
+
+			this.resources(journal.Id, journal.Id);
 			return this;
 		}
 
