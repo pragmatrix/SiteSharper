@@ -24,10 +24,11 @@
 	<link rel="stylesheet" href="/site.css" type="text/css" media="screen"/> 
 
 	@if (shortcutIconFilename_ != null)
-	{
+ {
 	<link rel="shortcut icon" href="/@shortcutIconFilename_" />
-	}
-
+ }
+	
+	@{ WriteLiteral(site.renderCSSReferences());}
 	@{ WriteLiteral(site.renderFeeds());}
 
 	<!-- UserVoice -->

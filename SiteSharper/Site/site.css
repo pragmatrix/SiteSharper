@@ -13,11 +13,6 @@ img
 	border: 0px; /* ie9 */
 }
 
-.content a
-{
-	border-bottom: 1px dotted gray;
-}
-
 .metainfo {
 	font-size: 75%;
 	margin-top: 0;
@@ -36,7 +31,6 @@ img
 {
 	margin-left: auto;
 	margin-right: auto;
-	font-family: Tahoma, Arial, sans-serif;
 }
 
 .frame-fixed
@@ -58,7 +52,7 @@ img
 
 .logo-name 
 {
-	font-size: 400%;
+	font-size: 300%;
 }
 
 .logo-slogan 
@@ -115,7 +109,6 @@ h2
 {
 	font-weight: normal;
 	border-bottom: solid 1px #ddd;
-	font-family: Georgia, Tahoma, Arial, sans-serif;
 }
 
 h3,h4,h5,h6
@@ -123,7 +116,8 @@ h3,h4,h5,h6
 	font-weight: normal;
 }
 
-p {
+p 
+{
 	line-height: 1.5;
 }
 

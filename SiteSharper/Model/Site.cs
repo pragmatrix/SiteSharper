@@ -33,6 +33,7 @@ namespace SiteSharper.Model
 		public Menu FooterMenu = new Menu();
 		public readonly List<Resource> Resources = new List<Resource>();
 		public readonly List<Feed> Feeds = new List<Feed>();
+		public readonly List<CSSRef> CSSReferences = new List<CSSRef>();
 		public readonly List<string> ModulesDirectories = new List<string>();
 		public dynamic Parameters;
 		public readonly List<string> TrackingCodeFiles = new List<string>();
@@ -89,6 +90,19 @@ namespace SiteSharper.Model
 		public Site feed(Feed feed)
 		{
 			Feeds.Add(feed);
+			return this;
+		}
+
+		public Site css(string file)
+		{
+			resource(file);
+			cssRef("/" + file);
+			return this;
+		}
+
+		public Site cssRef(string absoluteURL)
+		{
+			CSSReferences.Add(new CSSRef(absoluteURL));
 			return this;
 		}
 
@@ -184,6 +198,18 @@ namespace SiteSharper.Model
 			foreach (var feed in Feeds)
 			{
 				sb.Append(feed.render());
+			}
+
+			return sb.ToString();
+		}
+
+		public string renderCSSReferences()
+		{
+			var sb = new StringBuilder();
+
+			foreach (var cssRef in CSSReferences)
+			{
+				sb.Append(cssRef.render());
 			}
 
 			return sb.ToString();

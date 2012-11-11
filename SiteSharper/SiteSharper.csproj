@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="CommandLineParameters.cs" />
     <Compile Include="Model\ContentPage.cs" />
+    <Compile Include="Model\CSSRef.cs" />
     <Compile Include="Model\Resource.cs" />
     <Compile Include="Reader\JournalEntryFilename.cs" />
     <Compile Include="Reader\JournalEntry.cs" />

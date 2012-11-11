@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using SiteSharper.Model;
-using SiteSharper.Writer;
 
 namespace SiteSharper
 {
