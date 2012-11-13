@@ -32,7 +32,6 @@ namespace SiteSharper
 		{
 			copyResources(site);
 			generatePages(site);
-			copyMirrors(site);
 		}
 
 		void generatePages(Site site)
@@ -96,21 +95,6 @@ namespace SiteSharper
 			var writer = new PageWriter(siteWriter, page);
 			var html = _pageTemplate.generateHTML(writer);
 			page.writePage(writer, html);
-		}
-
-		void copyMirrors(Site site)
-		{
-			site.Mirrors.forEach(t => copyMirror(t.First, t.Second));
-		}
-
-		void copyMirror(string from, string to)
-		{
-			var sourcePath = Path.Combine(_outputPath, from);
-			if (!File.Exists(sourcePath))
-				throw new Exception("mirror source file {0} does not exist".format(from));
-
-			var targetPath = Path.Combine(_outputPath, to);
-			copyFile(sourcePath, targetPath);
 		}
 
 		static void copyFile(string sourceFile, string targetPath)

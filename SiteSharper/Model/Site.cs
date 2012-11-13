@@ -39,8 +39,7 @@ namespace SiteSharper.Model
 		public string ShortcutIcon_;
 		public readonly List<Journal> Journals = new List<Journal>();
 		public string PageFileExtension = string.Empty;
-		public List<Two<string>>  Mirrors = new List<Two<string>>();
-		public List<Page> OrphanPages = new List<Page>();
+		public readonly List<Page> OrphanPages = new List<Page>();
 
 		public Site logo(string logo)
 		{
@@ -119,12 +118,6 @@ namespace SiteSharper.Model
 			feed(journalFeed);
 
 			this.resources(journal.Id, journal.Id);
-			return this;
-		}
-
-		public Site mirror(string from, string to)
-		{
-			Mirrors.Add(Two.make(from, to));
 			return this;
 		}
 
