@@ -173,7 +173,7 @@ namespace SiteSharper.Model
 			if (page == HomePage_)
 				return "/";
 
-			return page.Id;
+			return "/" + page.Id;
 		}
 
 		#endregion

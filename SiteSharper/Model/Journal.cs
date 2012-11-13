@@ -28,6 +28,12 @@ namespace SiteSharper.Model
 		{
 			get { return Id + "/feed"; }
 		}
+
+		public Page indexReference(string title)
+		{
+			var url = "/" + Id + "/index";
+			return new Page(Id + "/index", title, url);
+		}
 	}
 
 	public struct FeedSettings
