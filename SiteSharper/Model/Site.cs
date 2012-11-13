@@ -41,6 +41,7 @@ namespace SiteSharper.Model
 		public readonly List<Journal> Journals = new List<Journal>();
 		public string PageFileExtension = string.Empty;
 		public List<Two<string>>  Mirrors = new List<Two<string>>();
+		public List<Page> OrphanPages = new List<Page>();
 
 		public Site logo(string logo)
 		{
@@ -63,6 +64,12 @@ namespace SiteSharper.Model
 		public Site home(Page page)
 		{
 			HomePage_ = page;
+			return this;
+		}
+
+		public Site page(Page page)
+		{
+			OrphanPages.Add(page);
 			return this;
 		}
 
@@ -160,6 +167,8 @@ namespace SiteSharper.Model
 
 				if (HomePage_ != null)
 					pages = pages.append(HomePage_);
+
+				pages = pages.Concat(OrphanPages);
 
 				return pages.Distinct();
 			}
