@@ -18,7 +18,6 @@ namespace SiteSharper.Model
 
 			// these resources are required by our template for the time being.
 			this.defaultSiteCSS();
-			this.fancybox();
 		}
 
 		const string StandardModulesDirectory = "StandardModules";
