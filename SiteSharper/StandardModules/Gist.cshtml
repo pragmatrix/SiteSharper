@@ -1,0 +1,16 @@
+﻿@model SiteSharper.ModuleContext
+@using System.Linq;
+
+@{
+	/*
+		id: The number of the gist to use.
+		file: The filename to use.
+	*/
+
+	var param = Model.Parameters;
+	string id = param.id;
+	string file = param.file;
+	var scriptURL = "https://gist.github.com/" + id + ".js?file=" + file;
+}
+
+<script src="@scriptURL"></script>
