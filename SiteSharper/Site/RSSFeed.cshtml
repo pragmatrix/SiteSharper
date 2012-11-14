@@ -11,16 +11,16 @@
 		<title>@journal.Title</title>
 		<link>http://@Model.SiteDomainName</link>
 		<description>@journal.Description</description>
-        
-        @foreach (var entry in entries)
-        {
-	        <item>
-		        <title>@entry.Title</title>
+		
+		@foreach (var entry in entries)
+		{
+			<item>
+				<title>@entry.Title</title>
 				<link>http://@Model.SiteDomainName/@entry.Id</link>
 				<pubDate>@entry.RFC822Date</pubDate>
 				<guid>http://@Model.SiteDomainName/@entry.Id</guid>
 				<description>@entry.Content</description>
-	        </item>		
-        }
+			</item>		
+		}
 	</channel>
 </rss>
