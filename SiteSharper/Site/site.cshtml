@@ -24,66 +24,64 @@
 	<link rel="stylesheet" href="/site.css" type="text/css" media="screen"/> 
 
 	@if (shortcutIconFilename_ != null)
- {
-	<link rel="shortcut icon" href="/@shortcutIconFilename_" />
- }
-	
+	{
+		<link rel="shortcut icon" href="/@shortcutIconFilename_" />
+	}
+
 	@{ WriteLiteral(site.renderCSSReferences());}
 	@{ WriteLiteral(site.renderFeeds());}
 
 </head>
 <body class="frame frame-fixed">
-
 	<div id="site-content-top" class="noselect">
 		<div class="logo">
-		
-	@if (logo_ != null)
- {
-			<span class="logo-name">
-				@if (homePage_ != null)
-	{
-			<a href="@urlOf(homePage_)">
-					<img src="@logo_" alt="@site.Name"/>
-			</a>
-	}
-	else
-	{
-					<img src="@logo_" alt="@site.Name"/>
-	}
-			</span>
- }
- else
- {
-			<span class="logo-name">
-				@if (homePage_ != null)
-	{
-					<a href="@urlOf(homePage_)">@site.Name</a>
-	}
-	else
-	{
-					@site.Name
-	}
-			</span>
- }
+			@if (logo_ != null)
+			{
+				<span class="logo-name">
+					@if (homePage_ != null)
+					{
+						<a href="@urlOf(homePage_)">
+							<img src="@logo_" alt="@site.Name"/>
+						</a>
+					}
+					else
+					{
+						<img src="@logo_" alt="@site.Name"/>
+					}
+				</span>
+			}
+			else
+			{
+				<span class="logo-name">
+					@if (homePage_ != null)
+					{
+						<a href="@urlOf(homePage_)">@site.Name</a>
+					}
+					else
+					{
+						@site.Name
+					}
+				</span>
+			}
 			<span class="logo-slogan">
 				@site.Slogan
 			</span>
 		</div>
 	
 		<div class="navigation">
-				@foreach (var menuPage in menu.Pages)
-	{
-		var url = urlOf(menuPage);
-		var name = menuPage.Name;
-		if (menuPage.Id == page.Id)
-		{
-						<a class="navigation-item navigation-item-current" href="@url">@name</a>
-		}
-		else
-		{
-						<a class="navigation-item" href="@url">@name</a>
-		}
-	}
+			@foreach (var menuPage in menu.Pages)
+			{
+				var url = urlOf(menuPage);
+				var name = menuPage.Name;
+				if (menuPage.Id == page.Id)
+				{
+					<a class="navigation-item navigation-item-current" href="@url">@name</a>
+				}
+				else
+				{
+					<a class="navigation-item" href="@url">@name</a>
+				}
+			}
 		</div>
 	</div>
 
@@ -95,18 +93,18 @@
 		<div class="footer noselect">
 			<div class="navigation">
 				@foreach (var menuPage in footerMenu.Pages)
-	{
-		var url = urlOf(menuPage);
-		var name = menuPage.Name;
-		if (menuPage.Id == page.Id)
-		{
+				{
+					var url = urlOf(menuPage);
+					var name = menuPage.Name;
+					if (menuPage.Id == page.Id)
+					{
 						<a class="navigation-item navigation-item-current" href="@url">@name</a>
-		}
-		else
-		{
+					}
+					else
+					{
 						<a class="navigation-item" href="@url">@name</a>
-		}
-	}
+					}
+				}
 			</div>
 		</div>
 	</div>	 
