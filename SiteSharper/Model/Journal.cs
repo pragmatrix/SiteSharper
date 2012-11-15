@@ -14,6 +14,8 @@ namespace SiteSharper.Model
 		public readonly string Title;
 		public readonly string Description;
 
+		public ICommentProvider Comments_;
+
 		public FeedSettings FeedSettings = FeedSettings.Default;
 
 		public Journal(string id, string path, string title, string description = "")
@@ -22,6 +24,12 @@ namespace SiteSharper.Model
 			Path = path;
 			Title = title;
 			Description = description;
+		}
+
+		public Journal enableComments(ICommentProvider provider)
+		{
+			Comments_ = provider;
+			return this;
 		}
 
 		public string FeedSitePath

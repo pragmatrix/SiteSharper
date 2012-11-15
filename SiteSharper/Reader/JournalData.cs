@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web;
 using SiteSharper.Model;
 using Toolbox;
@@ -57,18 +56,22 @@ namespace SiteSharper.Reader
 			return new ContentPage(Journal.Id + "/index", Journal.Title, MarkdownReader.fromString(markdown));
 		}
 
-		public IEnumerable<Page> createEntryPages()
+		public IEnumerable<Page> createPages()
 		{
-			return Entries.Select(createEntryPage);
+			return Entries.Select(createPage);
 		}
 
-		Page createEntryPage(JournalEntry entry)
+		Page createPage(JournalEntry entry)
 		{
 			var filename = entry.Filename;
 			var fileId = ReadableURL.read(filename.ToString());
 			var pageId = Journal.Id + "/" + fileId;
 
-			return new ContentPage(pageId, filename.NamePart, entry.Content);
+			string footer = "";
+			if (Journal.Comments_ != null)
+				footer = Journal.Comments_.createScriptForCommentArea("/" + pageId);
+
+			return new ContentPage(pageId, filename.NamePart, entry.Content + footer);
 		}
 
 		public IEnumerable<JournalEntry> FeedEntries

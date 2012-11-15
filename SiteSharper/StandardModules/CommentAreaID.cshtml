@@ -1,0 +1,15 @@
+﻿@model SiteSharper.ModuleContext
+
+@{
+	var param = Model.Parameters;
+	string account = param.account;
+	string url = param.url;
+}
+
+<script>
+	var idcomments_acct = '@account';
+	var idcomments_post_id;
+	var idcomments_post_url = '@url';
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
