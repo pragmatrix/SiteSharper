@@ -1,4 +1,6 @@
-﻿namespace SiteSharper.Model
+﻿using SiteSharper.Reader;
+
+namespace SiteSharper.Model
 {
 	public sealed class IntenseDebateCommentProvider : ICommentProvider
 	{
@@ -21,10 +23,20 @@
 
 		public string createScriptForCommentLink(string commentPageURL)
 		{
+			// note: id is just to discriminate the situation in which multiple links appear on one page.
+			// sadly the php script has parts in it that is replaced with this id, so the id must comply to 
+			// the format of php variable names. ReadableURL is a good choice in that case I guess.
+			// Also note that the ID term of an post-id is misleading here, the posts seem to be always 
+			// discriminated based on their urls.
+
+			var id = ReadableURL.read(commentPageURL)
+				.Replace("-", "_");
+
 			var mod = new ModuleCall("CommentLinkID");
 			mod
 				.argument("account", _account)
-				.argument("url", commentPageURL);
+				.argument("url", commentPageURL)
+				.argument("id", id);
 
 			return mod.toHTML();
 		}

@@ -3,14 +3,14 @@
 
 @{
 	/*
-        journal: The id of the journal to use.
-        entries: Number of journal entries to print.
+		journal: The id of the journal to use.
+		entries: Number of journal entries to print.
 	*/
 
 	var param = Model.Parameters;
 	string id = param.journal;
 	int max = int.Parse(param.entries);
-    
+	
 	var sitecontext = Model.SiteWriter;
 	var journal = sitecontext.journalFor(id);
 	var entries = journal.Entries.Take(max);
@@ -19,4 +19,10 @@
 @foreach(var j in entries)
 {
 	WriteLiteral(j.Content);
+
+	var comments = journal.Journal.Comments_;
+	if (comments != null)
+	{
+		WriteLiteral(comments.createScriptForCommentLink("/" + j.Id));
+	}
 }
