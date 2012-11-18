@@ -151,7 +151,7 @@ namespace SiteSharper.Model
 
 		#region Queries
 
-		public IEnumerable<Page> Pages
+		public IEnumerable<IPage> Pages
 		{
 			get
 			{
@@ -162,7 +162,7 @@ namespace SiteSharper.Model
 
 				pages = pages.Concat(OrphanPages);
 
-				return pages.OfType<Page>().Distinct();
+				return pages.OfType<IPage>().Distinct();
 			}
 		}
 
@@ -183,7 +183,7 @@ namespace SiteSharper.Model
 		#region Helpers
 
 
-		internal string sitePathOf(Page page)
+		internal string sitePathOf(IPage page)
 		{
 			if (page == HomePage_)
 				return "index.html";

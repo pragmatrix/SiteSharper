@@ -23,7 +23,7 @@ namespace SiteSharper
 			get { return _page.SiteWriter; }
 		}
 
-		public Page Page
+		public IPage Page
 		{
 			get { return _page.Page; }
 		}

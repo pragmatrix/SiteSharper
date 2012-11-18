@@ -40,7 +40,7 @@ namespace SiteSharper.Model
 		public IPageRef indexReference(string title)
 		{
 			var url = "/" + Id + "/index";
-			return new PageRef(Id + "/index", title, url);
+			return new ExternalPage(Id + "/index", title, url);
 		}
 	}
 

@@ -84,7 +84,7 @@ namespace SiteSharper
 			copyFile(sourceFile, targetPath);
 		}
 
-		void generatePage(SiteWriter siteWriter, Page page)
+		void generatePage(SiteWriter siteWriter, IPage page)
 		{
 			var writer = new PageWriter(siteWriter, page);
 			var html = _pageTemplate.generateHTML(writer);

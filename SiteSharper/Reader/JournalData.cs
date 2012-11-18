@@ -53,7 +53,10 @@ namespace SiteSharper.Reader
 			var markdown = "[](module:JournalIndex?journal={0})".format(
 				HttpUtility.UrlEncode(Journal.Id));
 
-			return new ContentPage(Journal.Id + "/index", Journal.Title, MarkdownReader.fromString(markdown));
+			return new Page(Journal.Id + "/index", Journal.Title)
+			       {
+				       Content = MarkdownReader.fromString(markdown)
+			       };
 		}
 
 		public IEnumerable<Page> createPages()
@@ -71,8 +74,12 @@ namespace SiteSharper.Reader
 			if (Journal.Comments_ != null)
 				footer = Journal.Comments_.createScriptForCommentArea("/" + pageId);
 
-			return new ContentPage(pageId, filename.NamePart, entry.Content + footer);
+			return new Page(pageId, filename.NamePart)
+			       {
+				       Content = entry.Content + footer
+			       };
 		}
+
 
 		public IEnumerable<JournalEntry> FeedEntries
 		{

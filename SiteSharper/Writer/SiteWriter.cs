@@ -68,7 +68,7 @@ namespace SiteSharper.Writer
 			return Journals.Single(j => j.Journal.Id == id);
 		}
 
-		public void writePage(Page page, string html)
+		public void writePage(IPage page, string html)
 		{
 			writeText(Site.sitePathOf(page), html);
 		}

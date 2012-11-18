@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using SiteSharper.Model;
+using SiteSharper.Reader;
 
 namespace SiteSharper
 {
@@ -26,7 +27,8 @@ namespace SiteSharper
 				if (!File.Exists(path))
 					continue;
 
-				page.sourceFile(path);
+				var content = MarkdownReader.fromFile(path);
+				page.Content = content;
 			}
 		}
 

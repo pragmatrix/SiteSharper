@@ -4,7 +4,7 @@ namespace SiteSharper.Writer
 {
 	public sealed class PageWriter
 	{
-		internal PageWriter(SiteWriter siteWriter, Page page)
+		internal PageWriter(SiteWriter siteWriter, IPage page)
 		{
 			SiteWriter = siteWriter;
 			Page = page;
@@ -12,7 +12,7 @@ namespace SiteSharper.Writer
 
 		public Site Site { get { return SiteWriter.Site; } }
 		public SiteWriter SiteWriter { get; private set; }
-		public readonly Page Page;
+		public readonly IPage Page;
 
 		public void writePage(string html)
 		{

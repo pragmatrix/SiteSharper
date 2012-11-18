@@ -80,7 +80,8 @@
     <Compile Include="Model\CSSRef.cs" />
     <Compile Include="Model\IHasURL.cs" />
     <Compile Include="Model\IPage.cs" />
-    <Compile Include="Model\PageRef.cs" />
+    <Compile Include="Model\IPageRef.cs" />
+    <Compile Include="Model\ExternalPage.cs" />
     <Compile Include="Model\Resource.cs" />
     <Compile Include="ModuleCall.cs" />
     <Compile Include="Model\IntenseDebateCommentProvider.cs" />

@@ -1,38 +1,24 @@
-﻿using SiteSharper.Reader;
-using SiteSharper.Writer;
+﻿using SiteSharper.Writer;
 
 namespace SiteSharper.Model
 {
-	public class Page : IPageRef
+	public class Page : IPage
 	{
 		public string Id { get; private set; }
 		public string Name { get; private set; }
-		public string ContentFilename = string.Empty;
 
 		public Page(string id, string name)
 		{
 			Id = id;
 			Name = name;
+			Content = string.Empty;
 		}
 
-		public Page sourceFile(string filename)
-		{
-			ContentFilename = filename;
-			return this;
-		}
+		public string Header { get; private set; }
 
-		public virtual string Content
-		{
-			get
-			{
-				if (ContentFilename == string.Empty)
-					return string.Empty;
+		public string Content { get; set; }
 
-				return MarkdownReader.fromFile(ContentFilename);
-			}
-		}
-
-		internal virtual void writePage(PageWriter writer, string html)
+		public virtual void writePage(PageWriter writer, string html)
 		{
 			writer.writePage(html);
 		}

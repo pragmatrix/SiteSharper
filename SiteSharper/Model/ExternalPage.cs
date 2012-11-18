@@ -1,8 +1,8 @@
 ﻿namespace SiteSharper.Model
 {
-	public sealed class PageRef : IPageRef, IHasURL
+	public sealed class ExternalPage : IPageRef, IHasURL
 	{
-		public PageRef(string id, string name, string url)
+		public ExternalPage(string id, string name, string url)
 		{
 			Id = id;
 			Name = name;

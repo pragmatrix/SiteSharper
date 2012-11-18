@@ -13,19 +13,11 @@ namespace SiteSharper.Model
 			_themeName = themeName;
 		}
 
-		public override string Content
-		{
-			get
-			{
-				return string.Empty;
-			}
-		}
-
 		const string TopId = "site-content-top";
 		const string BottomId = "site-content-bottom";
 		const string Head = "site-head";
 
-		internal override void writePage(PageWriter writer, string html)
+		public override void writePage(PageWriter writer, string html)
 		{
 			var siteWriter = writer.SiteWriter;
 

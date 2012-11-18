@@ -7,15 +7,7 @@
 		public ContentPage(string id, string name, string content)
 			: base(id, name)
 		{
-			_content = content;
-		}
-
-		public override string Content
-		{
-			get
-			{
-				return _content;
-			}
+			Content = content;
 		}
 	}
 }
