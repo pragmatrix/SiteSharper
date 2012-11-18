@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLineParameters.cs" />
+    <Compile Include="Model\GoogleCustomSearchProvider.cs" />
     <Compile Include="Model\ICommentProvider.cs" />
     <Compile Include="Model\ContentPage.cs" />
     <Compile Include="Model\CSSRef.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Model\IPage.cs" />
     <Compile Include="Model\IPageRef.cs" />
     <Compile Include="Model\ExternalPage.cs" />
+    <Compile Include="Model\ISearchProvider.cs" />
     <Compile Include="Model\Resource.cs" />
     <Compile Include="ModuleCall.cs" />
     <Compile Include="Model\IntenseDebateCommentProvider.cs" />
@@ -153,6 +155,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="StandardModules\FancyBoxHead.cshtml" />
+    <None Include="StandardModules\GoogleCustomSearchHeader.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="StandardModules\Tweet404.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

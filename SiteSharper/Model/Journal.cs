@@ -15,6 +15,7 @@ namespace SiteSharper.Model
 		public readonly string Description;
 
 		public ICommentProvider Comments_;
+		public ISearchProvider Search_;
 
 		public FeedSettings FeedSettings = FeedSettings.Default;
 
@@ -26,9 +27,15 @@ namespace SiteSharper.Model
 			Description = description;
 		}
 
-		public Journal enableComments(ICommentProvider provider)
+		public Journal comments(ICommentProvider provider)
 		{
 			Comments_ = provider;
+			return this;
+		}
+
+		public Journal search(ISearchProvider provider)
+		{
+			Search_ = provider;
 			return this;
 		}
 

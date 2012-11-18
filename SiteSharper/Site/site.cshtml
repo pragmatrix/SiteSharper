@@ -30,6 +30,11 @@
 
 	@{ WriteLiteral(site.renderCSSReferences());}
 	@{ WriteLiteral(site.renderFeeds());}
+	
+	@if (page.Header != "")
+	{
+		WriteLiteral(page.Header);
+	}
 
 </head>
 <body class="frame frame-fixed">

@@ -50,13 +50,18 @@ namespace SiteSharper.Reader
 
 		public Page createIndexPage()
 		{
-			var markdown = "[](module:JournalIndex?journal={0})".format(
-				HttpUtility.UrlEncode(Journal.Id));
+			var call = new ModuleCall("JournalIndex")
+				.argument("journal", Journal.Id);
 
-			return new Page(Journal.Id + "/index", Journal.Title)
+			var page =  new Page(Journal.Id + "/index", Journal.Title)
 			       {
-				       Content = MarkdownReader.fromString(markdown)
+				       Content = call.toHTML()
 			       };
+
+			if (Journal.Search_ != null)
+				page.Header = Journal.Search_.Header;
+
+			return page;
 		}
 
 		public IEnumerable<Page> createPages()

@@ -11,10 +11,11 @@ namespace SiteSharper.Model
 		{
 			Id = id;
 			Name = name;
+			Header = string.Empty;
 			Content = string.Empty;
 		}
 
-		public string Header { get; private set; }
+		public string Header { get; set; }
 
 		public string Content { get; set; }
 
