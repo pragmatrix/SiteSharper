@@ -71,7 +71,8 @@ namespace SiteSharper
 
 			if (site.ShortcutIcon_ != null)
 			{
-				copyResource(new Resource(site.ShortcutIcon_, string.Empty));
+				var name = Path.GetFileName(site.ShortcutIcon_);
+				copyResource(new Resource(site.ShortcutIcon_, name));
 			}
 		}
 
