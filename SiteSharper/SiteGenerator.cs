@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using SiteSharper.Model;
 using SiteSharper.Reader;
@@ -37,14 +36,9 @@ namespace SiteSharper
 		void generatePages(Site site)
 		{
 			var writer = SiteWriter.create(site, _outputPath);
-			
-			foreach (var page in site.Pages)
-			{
-				if (page.URL_ != null)
-					continue;
 
+			foreach (var page in site.Pages)
 				generatePage(writer, page);
-			}
 
 			writer.Journals
 				.forEach(j => generateJournalFeed(writer, j));

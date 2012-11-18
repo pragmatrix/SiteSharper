@@ -162,30 +162,29 @@ namespace SiteSharper.Model
 
 				pages = pages.Concat(OrphanPages);
 
-				return pages.Distinct();
+				return pages.OfType<Page>().Distinct();
 			}
 		}
 
-		public string urlOf(Page page)
+		public string urlOf(IPageRef pageRef)
 		{
-			if (page.URL_ != null)
-				return page.URL_;
+			var url = pageRef as IHasURL;
+			if (url != null)
+				return url.URL;
 
-			if (page == HomePage_)
+			if (pageRef == HomePage_)
 				return "/";
 
-			return "/" + page.Id;
+			return "/" + pageRef.Id;
 		}
 
 		#endregion
 
 		#region Helpers
 
+
 		internal string sitePathOf(Page page)
 		{
-			if (page.URL_ != null)
-				throw new Exception("This page has no file associated");
-
 			if (page == HomePage_)
 				return "index.html";
 

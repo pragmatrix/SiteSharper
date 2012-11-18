@@ -37,10 +37,10 @@ namespace SiteSharper.Model
 			get { return Id + "/feed"; }
 		}
 
-		public Page indexReference(string title)
+		public IPageRef indexReference(string title)
 		{
 			var url = "/" + Id + "/index";
-			return new Page(Id + "/index", title, url);
+			return new PageRef(Id + "/index", title, url);
 		}
 	}
 

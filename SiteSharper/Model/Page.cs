@@ -3,23 +3,16 @@ using SiteSharper.Writer;
 
 namespace SiteSharper.Model
 {
-	public class Page
+	public class Page : IPageRef
 	{
-		public readonly string Id;
-		public readonly string Name;
-		public readonly string URL_;
+		public string Id { get; private set; }
+		public string Name { get; private set; }
 		public string ContentFilename = string.Empty;
 
 		public Page(string id, string name)
-			: this(id, name, null)
-		{
-		}
-
-		public Page(string id, string name, string url_)
 		{
 			Id = id;
 			Name = name;
-			URL_ = url_;
 		}
 
 		public Page sourceFile(string filename)
