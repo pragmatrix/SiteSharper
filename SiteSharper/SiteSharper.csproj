@@ -164,7 +164,9 @@
     <None Include="StandardModules\JournalIndex.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="StandardModules\UserVoiceHead.cshtml" />
+    <None Include="StandardModules\UserVoiceHead.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

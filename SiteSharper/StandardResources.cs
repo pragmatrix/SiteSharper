@@ -14,5 +14,13 @@ namespace SiteSharper
 		{
 			return site.resource(Path.Combine(SiteGenerator.SiteSourcePath, "site.css"));
 		}
+		 
+		public static Site uservoice(this Site site, string id)
+		{
+			var call = new ModuleCall("UserVoiceHead")
+				.argument("id", id);
+
+			return site.header(call.toHTML());
+		}
 	}
 }

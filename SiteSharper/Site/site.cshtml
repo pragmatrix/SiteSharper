@@ -30,7 +30,8 @@
 
 	@{ WriteLiteral(site.renderCSSReferences());}
 	@{ WriteLiteral(site.renderFeeds());}
-	
+	@{ WriteLiteral(site.renderHeaders());}
+
 	@if (page.Header != "")
 	{
 		WriteLiteral(page.Header);

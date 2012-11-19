@@ -30,8 +30,11 @@ namespace SiteSharper.Model
 		public Menu Menu = new Menu();
 		public Menu FooterMenu = new Menu();
 		public readonly List<Resource> Resources = new List<Resource>();
+
 		public readonly List<Feed> Feeds = new List<Feed>();
 		public readonly List<CSSRef> CSSReferences = new List<CSSRef>();
+		public readonly List<string> Headers = new List<string>();
+
 		public readonly List<string> ModulesDirectories = new List<string>();
 		public dynamic Parameters;
 		public readonly List<string> TrackingCodeFiles = new List<string>();
@@ -117,6 +120,12 @@ namespace SiteSharper.Model
 			feed(journalFeed);
 
 			this.resources(journal.Id, journal.Id);
+			return this;
+		}
+
+		public Site header(string html)
+		{
+			Headers.Add(html);
 			return this;
 		}
 
@@ -209,6 +218,18 @@ namespace SiteSharper.Model
 			foreach (var cssRef in CSSReferences)
 			{
 				sb.Append(cssRef.render());
+			}
+
+			return sb.ToString();
+		}
+
+		public string renderHeaders()
+		{
+			var sb = new StringBuilder();
+
+			foreach (var header in Headers)
+			{
+				sb.Append(header);
 			}
 
 			return sb.ToString();
