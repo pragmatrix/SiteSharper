@@ -150,9 +150,9 @@ ul {
 .button{
 	background: #222 url(alert-overlay.png) repeat-x;
 	display: inline-block;
-	padding: 0.5em 0.8em 0.6em;
-	color: #fff;
-	text-decoration: none;
+	padding: 0.6em 0.8em 0.4em;
+	color: #fff !important;
+	text-decoration: none !important;
 	font-weight: bold;
 	line-height: 1;
 	-moz-border-radius: 5px;
@@ -195,8 +195,8 @@ ul {
  
 .green.button, .green.button:visited      { background-color: #91bd09; }
 .green.button:hover                       { background-color: #749a02; }
-.blue.button, .blue.button:visited        { background-color: #2daebf; }
-.blue.button:hover                        { background-color: #007d9a; }
+.blue.button, .blue.button:visited        { background-color: #0c8fe8; }
+.blue.button:hover                        { background-color: #096A9E; }
 .red.button, .red.button:visited          { background-color: #e33100; }
 .red.button:hover                         { background-color: #872300; }
 .magenta.button, .magenta.button:visited  { background-color: #a9014b; }
