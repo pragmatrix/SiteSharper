@@ -22,7 +22,7 @@ namespace SiteSharper
 				if (page.Content != string.Empty)
 					continue;
 
-				var filename = page.Id + ".md";
+				var filename = page.getResourceFilePath() + ".md";
 				var path = Path.Combine(directory, filename);
 				if (!File.Exists(path))
 					continue;

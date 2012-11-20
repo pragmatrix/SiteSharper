@@ -190,11 +190,15 @@ namespace SiteSharper.Model
 
 		#region Helpers
 
+		const string DirectoryIndexPageFilename = "index.html";
 
 		internal string sitePathOf(IPage page)
 		{
 			if (page == HomePage_)
-				return "index.html";
+				return DirectoryIndexPageFilename;
+
+			if (page.Id.EndsWith("/"))
+				return page.Id + DirectoryIndexPageFilename;
 
 			return page.Id + PageFileExtension;
 		}
