@@ -92,11 +92,11 @@ namespace SiteSharper.Reader
 			{
 				var feedSettings = Journal.FeedSettings;
 				var index = 0;
-				var cutOffDate = DateTime.Now + feedSettings.MinimumTimeSpanToCover;
+				var cutOffDate = DateTime.Now - feedSettings.MinimumTimeSpanToCover;
 
 				foreach (var entry in Entries)
 				{
-					if (index < feedSettings.MinimumNumberOfItems || entry.Date < cutOffDate)
+					if (index < feedSettings.MinimumNumberOfItems || entry.Date > cutOffDate)
 						yield return entry;
 					else
 						break;
