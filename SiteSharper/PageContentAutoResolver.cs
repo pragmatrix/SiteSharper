@@ -48,6 +48,10 @@ namespace SiteSharper
 			return -1 != Array.IndexOf(ResourceFileExtensions, ext);
 		}
 
-		static readonly string[] ResourceFileExtensions = new string[] { ".png", ".jpg", ".gif", ".js", ".css"};
+		static readonly string[] ResourceFileExtensions = new[]
+		                                                  {
+			                                                  ".png", ".jpg", ".gif", ".js", ".css", 
+															  ".ttf", ".eot", ".svg", ".woff"
+		                                                  };
 	}
 }

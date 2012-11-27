@@ -100,10 +100,10 @@ namespace SiteSharper.Model
 			return this;
 		}
 
-		public Site css(string file)
+		public Site css(string sourceFile, string relativeTargetPath = "")
 		{
-			resource(file);
-			cssRef("/" + file);
+			resource(sourceFile, relativeTargetPath);
+			cssRef("/" + (relativeTargetPath != "" ? relativeTargetPath : sourceFile));
 			return this;
 		}
 
@@ -184,6 +184,23 @@ namespace SiteSharper.Model
 				return "/";
 
 			return "/" + pageRef.Id;
+		}
+
+		public string referenceClassesOf(IPageRef pageRef, bool selected)
+		{
+			return string.Join(" ", enumReferenceClassesOf(pageRef, selected));
+		}
+
+		static IEnumerable<string> enumReferenceClassesOf(IPageRef page, bool selected)
+		{
+			yield return "navigation-item";
+			if (selected)
+				yield return "navigation-item-current";
+
+			var hasClasses = page as ISpecifiesReferenceClasses;
+			if (hasClasses != null)
+				foreach (var rc in hasClasses.ReferenceClasses)
+					yield return rc;
 		}
 
 		#endregion
