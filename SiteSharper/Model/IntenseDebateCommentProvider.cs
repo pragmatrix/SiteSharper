@@ -13,9 +13,12 @@ namespace SiteSharper.Model
 
 		public string createScriptForCommentArea(string commentPageURL)
 		{
+			var id = createIdFromURL(commentPageURL);
+
 			var mod = new ModuleCall("CommentAreaID");
 			mod
 				.argument("account", _account)
+				.argument("id", id)
 				.argument("url", commentPageURL);
 
 			return mod.toHTML();
@@ -29,8 +32,7 @@ namespace SiteSharper.Model
 			// Also note that the ID term of an post-id is misleading here, the posts seem to be always 
 			// discriminated based on their urls.
 
-			var id = ReadableURL.read(commentPageURL)
-				.Replace("-", "_");
+			var id = createIdFromURL(commentPageURL);
 
 			var mod = new ModuleCall("CommentLinkID");
 			mod
@@ -39,6 +41,12 @@ namespace SiteSharper.Model
 				.argument("id", id);
 
 			return mod.toHTML();
+		}
+
+		static string createIdFromURL(string commentPageURL)
+		{
+			return ReadableURL.read(commentPageURL)
+				.Replace("-", "_");
 		}
 	}
 }

@@ -4,12 +4,14 @@
 	var param = Model.Parameters;
 	string account = param.account;
 	string url = param.url;
+	string id = param.id;
+	string absoluteURL = "http://" + Model.Site.DomainName + url;
 }
 
 <script>
 	var idcomments_acct = '@account';
-	var idcomments_post_id;
-	var idcomments_post_url = '@url';
+	var idcomments_post_id = '@id';
+	var idcomments_post_url = '@absoluteURL';
 </script>
 <span id="IDCommentsPostTitle" style="display:none"></span>
 <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
