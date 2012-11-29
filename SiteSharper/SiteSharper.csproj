@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1DEAA324-0F90-468E-86FA-25E5FFD47A83}</ProjectGuid>
+    <ProjectGuid>{1FB69F15-92F2-4C19-B8B4-16C37E84F29E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SiteSharper</RootNamespace>
