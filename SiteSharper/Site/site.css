@@ -126,6 +126,13 @@ ul {
 	line-height: 1.25;
 }
 
+blockquote {
+	color: #666;
+	border-left: .5em solid #eee;
+	margin-left: 0;
+	padding: 0 2em;
+}
+
 /* footer */
 
 .footer 
