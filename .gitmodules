@@ -1,3 +1,4 @@
 [submodule "Toolbox.Essentials"]
 	path = Toolbox.Essentials
 	url = git@github.com:pragmatrix/Toolbox.Essentials.git
+	branch = master
