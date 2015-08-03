@@ -4,3 +4,4 @@
 /SiteSharper/obj/
 /Debug/
 /Release/
+*.ncrunchproject
